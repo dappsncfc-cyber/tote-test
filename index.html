@@ -242,11 +242,12 @@
 
                 <!-- Center Print Placement -->
                 <div id="print-overlay" class="absolute w-28 h-28 flex items-center justify-center pointer-events-none transition-all duration-300" style="top: 48%;">
-                  <div id="print-badge" class="p-2 text-center">
+                  <div id="print-badge" class="p-2 text-center flex flex-col items-center justify-center w-full h-full">
                     <div id="print-graphic-icon" class="text-navy">
                       <!-- SVG icon injected here -->
                     </div>
                     <span id="print-graphic-text" class="text-[10px] font-bold uppercase tracking-wider block mt-1 text-navy">Botanica</span>
+                    <img id="print-uploaded-img" src="" alt="Custom artwork preview" class="hidden max-h-24 max-w-24 object-contain rounded drop-shadow-sm pointer-events-none">
                   </div>
                 </div>
               </div>
@@ -308,7 +309,10 @@
 
             <!-- Step 3: Screen Print Artwork Design Motif -->
             <div>
-              <label class="text-xs font-bold uppercase tracking-wider text-navy block mb-1.5">3. Sample Artwork Motif</label>
+              <div class="flex items-center justify-between mb-1.5">
+                <label class="text-xs font-bold uppercase tracking-wider text-navy">3. Artwork Design / Custom Upload</label>
+                <span id="design-type-badge" class="text-[10px] font-semibold text-crimson bg-crimson/10 px-2 py-0.5 rounded-full">Sample Motif</span>
+              </div>
               <div class="grid grid-cols-3 gap-2">
                 <button type="button" class="design-btn active p-2.5 rounded-xl border-2 border-navy bg-canvas text-center text-xs font-semibold text-navy transition-all shadow-sm active:scale-95" data-design="botanical">
                   🌿 Botanica
@@ -319,6 +323,33 @@
                 <button type="button" class="design-btn p-2.5 rounded-xl border-2 border-transparent bg-canvas/70 text-center text-xs font-semibold text-navy hover:bg-canvas transition-all active:scale-95" data-design="abstract">
                   〰️ Abstract
                 </button>
+              </div>
+
+              <!-- Custom Image Upload Area -->
+              <div class="mt-2.5">
+                <input type="file" id="custom-image-input" accept="image/*" class="hidden">
+                <button type="button" id="trigger-upload-btn" class="w-full py-2.5 px-3 rounded-xl border-2 border-dashed border-navy/30 bg-canvas/60 hover:bg-canvas hover:border-crimson/50 text-navy text-xs font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
+                  <svg class="w-4 h-4 text-crimson shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                  <span id="upload-btn-label">Upload Your Own Image / Logo</span>
+                </button>
+
+                <div id="upload-preview-bar" class="hidden mt-2 p-2.5 rounded-xl bg-canvas border border-navy/15 flex items-center justify-between text-xs shadow-sm">
+                  <div class="flex items-center gap-2.5 overflow-hidden">
+                    <img id="upload-thumb" src="" alt="Thumbnail" class="w-9 h-9 object-contain rounded-lg bg-sand border border-navy/10 shrink-0">
+                    <div class="min-w-0">
+                      <p id="upload-filename" class="truncate font-bold text-navy text-xs">filename.png</p>
+                      <p id="upload-filesize" class="text-[10px] text-slate">Image loaded in editor</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1 shrink-0">
+                    <button type="button" id="reselect-image-btn" class="text-[11px] font-semibold text-navy hover:text-crimson bg-sand hover:bg-sand/80 px-2 py-1 rounded-lg transition-colors">
+                      Change
+                    </button>
+                    <button type="button" id="remove-upload-btn" class="text-xs font-bold text-crimson hover:bg-crimson/10 p-1 rounded-lg transition-colors" title="Remove image">
+                      ✕
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -575,6 +606,31 @@
           </div>
 
           <div>
+            <label class="block text-xs font-bold text-navy uppercase mb-1">Artwork Attachment for Print Quote</label>
+            <div id="quote-artwork-dropzone" class="p-3.5 rounded-xl bg-canvas border border-navy/20 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <div class="flex items-center gap-3 overflow-hidden w-full sm:w-auto">
+                <div id="quote-artwork-thumb-wrapper" class="w-12 h-12 rounded-lg bg-sand border border-navy/10 flex items-center justify-center shrink-0 overflow-hidden">
+                  <span id="quote-artwork-placeholder-icon" class="text-xl">🎨</span>
+                  <img id="quote-artwork-thumb" src="" alt="Attached artwork preview" class="hidden w-full h-full object-contain">
+                </div>
+                <div class="min-w-0 flex-1">
+                  <p id="quote-artwork-status-title" class="text-xs font-bold text-navy truncate">No artwork attached yet</p>
+                  <p id="quote-artwork-status-desc" class="text-[11px] text-slate">Upload artwork here or create image mock up above</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 w-full sm:w-auto justify-end shrink-0">
+                <input type="file" id="quote-artwork-file-input" accept="image/*" class="hidden">
+                <button type="button" id="quote-artwork-upload-btn" class="px-3.5 py-2 rounded-lg bg-sand border border-navy/15 text-navy hover:bg-navy hover:text-white font-bold text-xs transition-colors active:scale-95">
+                  Attach Image
+                </button>
+                <button type="button" id="quote-artwork-remove-btn" class="hidden px-2.5 py-2 rounded-lg text-crimson hover:bg-crimson/10 font-bold text-xs transition-colors" title="Remove attached artwork">
+                  Remove
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div>
             <label class="block text-xs font-bold text-navy uppercase mb-1">Project Details / Estimated Specs</label>
             <textarea id="quote-notes" rows="4" placeholder="Mention ink colors (e.g. 1 color white print on dark bag), target delivery date, or artwork link..." class="w-full px-4 py-3 rounded-xl bg-canvas border border-navy/20 focus:outline-none focus:ring-2 focus:ring-crimson text-sm"></textarea>
           </div>
@@ -648,6 +704,57 @@
       <a href="#quote-form" class="px-4 py-2 rounded-xl bg-crimson text-white text-xs font-bold shadow active:scale-95">
         Get Quote
       </a>
+    </div>
+  </div>
+
+  <!-- Quote Confirmation Modal with Attached Artwork & Email Direct Link -->
+  <div id="quote-sent-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy/80 backdrop-blur-sm">
+    <div class="bg-canvas w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl border border-navy/10 relative p-6 sm:p-8 space-y-5">
+      <button id="close-quote-modal-btn" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-sand hover:bg-navy hover:text-white text-navy flex items-center justify-center transition-colors">
+        &times;
+      </button>
+
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-crimson text-white flex items-center justify-center text-xl shrink-0">
+          ✉️
+        </div>
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-crimson">Quote Request Ready</span>
+          <h3 class="font-display text-xl sm:text-2xl text-navy">Send Quote Email to Shop</h3>
+        </div>
+      </div>
+
+      <p class="text-xs text-slate leading-relaxed">
+        Your quote details and artwork attachment have been prepared for <strong>orders@thegoodthebagandtheugly.com</strong>.
+      </p>
+
+      <!-- Summary Box with Image Thumbnail -->
+      <div id="quote-modal-summary" class="p-4 rounded-2xl bg-sand/70 border border-navy/10 space-y-3">
+        <div class="flex items-start justify-between gap-3">
+          <div class="text-xs space-y-1">
+            <p><span class="font-bold text-navy">Customer:</span> <span id="qmodal-name" class="text-slate"></span> (<span id="qmodal-email" class="text-slate"></span>)</p>
+            <p><span class="font-bold text-navy">Item / Qty:</span> <span id="qmodal-product" class="text-slate"></span></p>
+            <p><span class="font-bold text-navy">Customizer Spec:</span> <span id="qmodal-spec" class="text-slate"></span></p>
+          </div>
+          <!-- Image thumbnail in modal summary -->
+          <div id="qmodal-img-container" class="hidden shrink-0 w-16 h-16 rounded-xl bg-white border border-navy/15 p-1 flex items-center justify-center">
+            <img id="qmodal-img" src="" alt="Attached Quote Artwork" class="max-w-full max-h-full object-contain">
+          </div>
+        </div>
+        <div id="qmodal-artwork-badge" class="text-[11px] font-medium text-navy flex items-center gap-1.5 pt-2 border-t border-navy/10">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+
+      <div class="space-y-2 pt-1">
+        <a id="qmodal-mailto-btn" href="#" class="w-full py-3.5 rounded-xl bg-crimson text-white font-bold text-xs uppercase tracking-wider hover:bg-navy transition-all shadow-md flex items-center justify-center gap-2 active:scale-95 text-center">
+          <span>Open Email Client &amp; Send Attachment</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <p class="text-[10px] text-slate text-center">
+          Note: If your email app doesn't open automatically, a copy of your request was also saved.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -828,8 +935,12 @@
       colorName: 'Raw Canvas',
       design: 'botanical',
       designName: 'Botanica',
-      quantity: 50
+      quantity: 50,
+      uploadedImage: null // { dataUrl, filename, filesize }
     };
+
+    // Quote Form Attached Artwork State
+    let quoteArtworkState = null; // { dataUrl, filename }
 
     // Design Motif SVGs
     const designSVGs = {
@@ -1046,9 +1157,43 @@
     const teeBodyPath = document.getElementById('tee-body-path');
     const printGraphicIcon = document.getElementById('print-graphic-icon');
     const printGraphicText = document.getElementById('print-graphic-text');
+    const printUploadedImg = document.getElementById('print-uploaded-img');
     const colorNameDisplay = document.getElementById('color-name-display');
     const mockupLabel = document.getElementById('mockup-label');
     const printOverlay = document.getElementById('print-overlay');
+    const designTypeBadge = document.getElementById('design-type-badge');
+
+    // Custom upload elements in customizer
+    const customImageInput = document.getElementById('custom-image-input');
+    const triggerUploadBtn = document.getElementById('trigger-upload-btn');
+    const uploadBtnLabel = document.getElementById('upload-btn-label');
+    const uploadPreviewBar = document.getElementById('upload-preview-bar');
+    const uploadThumb = document.getElementById('upload-thumb');
+    const uploadFilename = document.getElementById('upload-filename');
+    const uploadFilesize = document.getElementById('upload-filesize');
+    const reselectImageBtn = document.getElementById('reselect-image-btn');
+    const removeUploadBtn = document.getElementById('remove-upload-btn');
+
+    // Quote form artwork elements
+    const quoteArtworkFileInput = document.getElementById('quote-artwork-file-input');
+    const quoteArtworkUploadBtn = document.getElementById('quote-artwork-upload-btn');
+    const quoteArtworkRemoveBtn = document.getElementById('quote-artwork-remove-btn');
+    const quoteArtworkThumb = document.getElementById('quote-artwork-thumb');
+    const quoteArtworkPlaceholderIcon = document.getElementById('quote-artwork-placeholder-icon');
+    const quoteArtworkStatusTitle = document.getElementById('quote-artwork-status-title');
+    const quoteArtworkStatusDesc = document.getElementById('quote-artwork-status-desc');
+
+    // Quote Modal elements
+    const quoteSentModal = document.getElementById('quote-sent-modal');
+    const closeQuoteModalBtn = document.getElementById('close-quote-modal-btn');
+    const qmodalName = document.getElementById('qmodal-name');
+    const qmodalEmail = document.getElementById('qmodal-email');
+    const qmodalProduct = document.getElementById('qmodal-product');
+    const qmodalSpec = document.getElementById('qmodal-spec');
+    const qmodalImgContainer = document.getElementById('qmodal-img-container');
+    const qmodalImg = document.getElementById('qmodal-img');
+    const qmodalArtworkBadge = document.getElementById('qmodal-artwork-badge');
+    const qmodalMailtoBtn = document.getElementById('qmodal-mailto-btn');
 
     function updateMockup() {
       if (customizerState.garment === 'tote') {
@@ -1067,21 +1212,169 @@
         printOverlay.style.top = '42%';
       }
 
-      // Check for dark contrast
-      const isDark = customizerState.color === '#0C233F' || customizerState.color === '#D0232B' || customizerState.color === '#3A4F66';
-      if (isDark) {
-        printGraphicIcon.className = 'text-sand';
-        printGraphicText.className = 'text-[10px] font-bold uppercase tracking-wider block mt-1 text-sand';
-      } else {
-        printGraphicIcon.className = 'text-navy';
-        printGraphicText.className = 'text-[10px] font-bold uppercase tracking-wider block mt-1 text-navy';
-      }
+      // Handle display of custom uploaded image vs sample motif
+      if (customizerState.uploadedImage) {
+        printGraphicIcon.classList.add('hidden');
+        printGraphicText.classList.add('hidden');
+        printUploadedImg.src = customizerState.uploadedImage.dataUrl;
+        printUploadedImg.classList.remove('hidden');
 
-      printGraphicIcon.innerHTML = designSVGs[customizerState.design];
-      printGraphicText.textContent = customizerState.designName;
+        designTypeBadge.textContent = "Custom Image Upload";
+        designTypeBadge.className = "text-[10px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full";
+
+        uploadPreviewBar.classList.remove('hidden');
+        uploadThumb.src = customizerState.uploadedImage.dataUrl;
+        uploadFilename.textContent = customizerState.uploadedImage.filename;
+        uploadFilesize.textContent = `${customizerState.uploadedImage.filesize} • Custom print on garment`;
+        uploadBtnLabel.textContent = `Uploaded: ${customizerState.uploadedImage.filename}`;
+
+        // De-select sample design buttons
+        designBtns.forEach(b => {
+          b.classList.remove('border-navy', 'bg-canvas', 'active');
+          b.classList.add('border-transparent', 'bg-canvas/70');
+        });
+      } else {
+        printUploadedImg.classList.add('hidden');
+        printUploadedImg.src = '';
+        printGraphicIcon.classList.remove('hidden');
+        printGraphicText.classList.remove('hidden');
+
+        designTypeBadge.textContent = "Sample Motif";
+        designTypeBadge.className = "text-[10px] font-semibold text-crimson bg-crimson/10 px-2 py-0.5 rounded-full";
+
+        uploadPreviewBar.classList.add('hidden');
+        uploadBtnLabel.textContent = "Upload Your Own Image / Logo";
+
+        // Check for dark contrast
+        const isDark = customizerState.color === '#0C233F' || customizerState.color === '#D0232B' || customizerState.color === '#3A4F66';
+        if (isDark) {
+          printGraphicIcon.className = 'text-sand';
+          printGraphicText.className = 'text-[10px] font-bold uppercase tracking-wider block mt-1 text-sand';
+        } else {
+          printGraphicIcon.className = 'text-navy';
+          printGraphicText.className = 'text-[10px] font-bold uppercase tracking-wider block mt-1 text-navy';
+        }
+
+        printGraphicIcon.innerHTML = designSVGs[customizerState.design] || designSVGs.botanical;
+        printGraphicText.textContent = customizerState.designName || 'Botanica';
+      }
 
       renderPricing();
     }
+
+    // Helper to format file sizes
+    function formatBytes(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    // Process uploaded image file in Customizer Editor
+    function handleCustomizerImageFile(file) {
+      if (!file || !file.type.startsWith('image/')) {
+        showToast("Please upload a valid image file (PNG, JPG, SVG, WebP)");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        customizerState.uploadedImage = {
+          dataUrl: e.target.result,
+          filename: file.name,
+          filesize: formatBytes(file.size)
+        };
+        updateMockup();
+        // Also sync automatically to Quote Form
+        setQuoteFormArtwork(e.target.result, file.name);
+        showToast(`Image "${file.name}" rendered in live editor!`);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    triggerUploadBtn.addEventListener('click', () => customImageInput.click());
+    reselectImageBtn.addEventListener('click', () => customImageInput.click());
+
+    customImageInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        handleCustomizerImageFile(e.target.files[0]);
+      }
+    });
+
+    removeUploadBtn.addEventListener('click', () => {
+      customizerState.uploadedImage = null;
+      customImageInput.value = '';
+
+      // Re-activate first design button (botanical)
+      customizerState.design = 'botanical';
+      customizerState.designName = 'Botanica';
+      designBtns.forEach((b, idx) => {
+        if (idx === 0) {
+          b.classList.add('border-navy', 'bg-canvas', 'active');
+          b.classList.remove('border-transparent', 'bg-canvas/70');
+        } else {
+          b.classList.remove('border-navy', 'bg-canvas', 'active');
+          b.classList.add('border-transparent', 'bg-canvas/70');
+        }
+      });
+
+      updateMockup();
+      showToast("Uploaded image removed. Reverted to sample motif.");
+    });
+
+    // Sync artwork state to Quote Request Form
+    function setQuoteFormArtwork(dataUrl, filename) {
+      quoteArtworkState = { dataUrl, filename };
+
+      quoteArtworkPlaceholderIcon.classList.add('hidden');
+      quoteArtworkThumb.src = dataUrl;
+      quoteArtworkThumb.classList.remove('hidden');
+
+      quoteArtworkStatusTitle.textContent = `Attached: ${filename}`;
+      quoteArtworkStatusTitle.classList.add('text-crimson');
+      quoteArtworkStatusDesc.textContent = "Image ready to be attached to shop quote email.";
+
+      quoteArtworkRemoveBtn.classList.remove('hidden');
+      quoteArtworkUploadBtn.textContent = "Change Image";
+    }
+
+    function removeQuoteFormArtwork() {
+      quoteArtworkState = null;
+      quoteArtworkThumb.classList.add('hidden');
+      quoteArtworkThumb.src = '';
+      quoteArtworkPlaceholderIcon.classList.remove('hidden');
+
+      quoteArtworkStatusTitle.textContent = "No artwork attached yet";
+      quoteArtworkStatusTitle.classList.remove('text-crimson');
+      quoteArtworkStatusDesc.textContent = "Upload artwork here or create image mockup above";
+
+      quoteArtworkRemoveBtn.classList.add('hidden');
+      quoteArtworkUploadBtn.textContent = "Attach Image";
+      quoteArtworkFileInput.value = '';
+    }
+
+    quoteArtworkUploadBtn.addEventListener('click', () => quoteArtworkFileInput.click());
+    quoteArtworkFileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        const file = e.target.files[0];
+        if (!file.type.startsWith('image/')) {
+          showToast("Please upload a valid image file");
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = (evt) => {
+          setQuoteFormArtwork(evt.target.result, file.name);
+          showToast(`Attached "${file.name}" to your quote request!`);
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    quoteArtworkRemoveBtn.addEventListener('click', () => {
+      removeQuoteFormArtwork();
+      showToast("Artwork removed from quote form.");
+    });
 
     garmentToggles.forEach(toggle => {
       toggle.addEventListener('click', () => {
@@ -1120,6 +1413,9 @@
 
         customizerState.design = btn.dataset.design;
         customizerState.designName = btn.textContent.trim().replace(/^[^\w]+/, '');
+        // When user picks a sample motif, clear uploaded custom image
+        customizerState.uploadedImage = null;
+        customImageInput.value = '';
         updateMockup();
       });
     });
@@ -1156,10 +1452,18 @@
       else qtySelect.value = "200";
 
       const { unitPrice, total } = calculatePricing(customizerState.garment, customizerState.quantity);
-      notes.value = `Generator Spec: ${customizerState.quantity}x ${customizerState.garment === 'tote' ? 'Heavy Tote' : 'Boxy Tee'} in ${customizerState.colorName} fabric with "${customizerState.designName}" artwork motif. Estimated unit cost: ~£${unitPrice} (Total: ~£${total}).`;
+      const designInfo = customizerState.uploadedImage
+        ? `Custom Uploaded Image (${customizerState.uploadedImage.filename})`
+        : `"${customizerState.designName}" motif`;
+
+      notes.value = `Generator Spec: ${customizerState.quantity}x ${customizerState.garment === 'tote' ? 'Heavy Tote' : 'Boxy Tee'} in ${customizerState.colorName} fabric with ${designInfo}. Estimated unit cost: ~£${unitPrice} (Total: ~£${total}).`;
+
+      if (customizerState.uploadedImage) {
+        setQuoteFormArtwork(customizerState.uploadedImage.dataUrl, customizerState.uploadedImage.filename);
+      }
 
       window.location.hash = '#quote-form';
-      showToast("Design specs attached to your quote form!");
+      showToast("Design specs & artwork attached to your quote form!");
     });
 
     // Category filter buttons
@@ -1180,9 +1484,89 @@
     // Bulk Inquiry Form submission handling
     document.getElementById('bulk-inquiry-form').addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('quote-name').value;
-      showToast(`Thank you ${name}! We will email your itemized cost proof within 24h.`);
-      e.target.reset();
+      const name = document.getElementById('quote-name').value.trim();
+      const email = document.getElementById('quote-email').value.trim();
+      const productVal = document.getElementById('quote-product-select').value;
+      const qtyVal = document.getElementById('quote-qty-select').value;
+      const notes = document.getElementById('quote-notes').value.trim();
+
+      const productLabels = {
+        'tote': 'Heavyweight Tote Bags (340 GSM)',
+        'tshirt': 'Boxy T-Shirts (220 GSM)',
+        'bundle': 'Totes & T-Shirts Combo',
+        'sample': 'Single Piece Sample First'
+      };
+
+      const productText = productLabels[productVal] || productVal;
+      const attachedImage = quoteArtworkState || (customizerState.uploadedImage ? { dataUrl: customizerState.uploadedImage.dataUrl, filename: customizerState.uploadedImage.filename } : null);
+
+      // Populate confirmation modal
+      qmodalName.textContent = name;
+      qmodalEmail.textContent = email;
+      qmodalProduct.textContent = `${productText} (~${qtyVal} units)`;
+      qmodalSpec.textContent = notes || "Standard estimate request";
+
+      if (attachedImage) {
+        qmodalImgContainer.classList.remove('hidden');
+        qmodalImg.src = attachedImage.dataUrl;
+        qmodalArtworkBadge.innerHTML = `<span class="text-emerald-600 font-bold">✓ Artwork Attached:</span> <span class="font-mono text-slate truncate">${attachedImage.filename}</span>`;
+      } else {
+        qmodalImgContainer.classList.add('hidden');
+        qmodalImg.src = '';
+        qmodalArtworkBadge.innerHTML = `<span class="text-amber-600 font-bold">! No image attached</span> <span class="text-slate">&bull; Default sample proof requested</span>`;
+      }
+
+      // Build mailto body
+      const shopEmail = "orders@thegoodthebagandtheugly.com";
+      const subject = encodeURIComponent(`New Quote Request from ${name} - ${productText}`);
+
+      let bodyText = `Hello The Good, The Bag and The Ugly Team,\n\n`;
+      bodyText += `I would like to request an official quote for custom screen printing.\n\n`;
+      bodyText += `--- CUSTOMER DETAILS ---\n`;
+      bodyText += `Name: ${name}\n`;
+      bodyText += `Email: ${email}\n\n`;
+      bodyText += `--- PROJECT SPECIFICATIONS ---\n`;
+      bodyText += `Product: ${productText}\n`;
+      bodyText += `Estimated Quantity: ${qtyVal} units\n`;
+      bodyText += `Project Notes / Spec: ${notes || 'N/A'}\n\n`;
+
+      if (attachedImage) {
+        bodyText += `--- ARTWORK ATTACHMENT ---\n`;
+        bodyText += `File Name: ${attachedImage.filename}\n`;
+        bodyText += `[Note: If your email client does not attach images automatically from web links, please paste/attach your file "${attachedImage.filename}" to this email]\n\n`;
+      }
+
+      bodyText += `Thank you!\n${name}`;
+
+      const mailtoUrl = `mailto:${shopEmail}?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+      qmodalMailtoBtn.href = mailtoUrl;
+
+      // Show confirmation modal
+      quoteSentModal.classList.remove('hidden');
+      quoteSentModal.classList.add('flex');
+
+      showToast(`Quote summary prepared for ${name}!`);
+    });
+
+    closeQuoteModalBtn.addEventListener('click', () => {
+      quoteSentModal.classList.add('hidden');
+      quoteSentModal.classList.remove('flex');
+    });
+
+    quoteSentModal.addEventListener('click', (e) => {
+      if (e.target === quoteSentModal) {
+        quoteSentModal.classList.add('hidden');
+        quoteSentModal.classList.remove('flex');
+      }
+    });
+
+    qmodalMailtoBtn.addEventListener('click', () => {
+      setTimeout(() => {
+        quoteSentModal.classList.add('hidden');
+        quoteSentModal.classList.remove('flex');
+        document.getElementById('bulk-inquiry-form').reset();
+        removeQuoteFormArtwork();
+      }, 500);
     });
 
     // Initialize display
