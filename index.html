@@ -241,25 +241,32 @@
                 </svg>
 
                 <!-- Center Print Placement -->
-                <div id="print-overlay" class="absolute w-28 h-28 flex items-center justify-center pointer-events-none transition-all duration-300" style="top: 48%;">
-                  <div id="print-badge" class="p-2 text-center flex flex-col items-center justify-center w-full h-full">
-                    <div id="print-graphic-icon" class="text-navy">
+                <div id="print-overlay" class="absolute w-28 h-28 flex items-center justify-center transition-all duration-300" style="top: 48%;">
+                  <div id="print-badge" class="p-2 text-center flex flex-col items-center justify-center w-full h-full relative">
+                    <div id="print-graphic-icon" class="text-navy pointer-events-none">
                       <!-- SVG icon injected here -->
                     </div>
-                    <span id="print-graphic-text" class="text-[10px] font-bold uppercase tracking-wider block mt-1 text-navy">Botanica</span>
-                    <img id="print-uploaded-img" src="" alt="Custom artwork preview" class="hidden max-h-24 max-w-24 object-contain rounded drop-shadow-sm pointer-events-none">
+                    <span id="print-graphic-text" class="text-[10px] font-bold uppercase tracking-wider block mt-1 text-navy pointer-events-none">Botanica</span>
+
+                    <!-- Drag & Resize Wrapper for Custom Uploaded Image -->
+                    <div id="uploaded-img-wrapper" class="hidden absolute cursor-grab active:cursor-grabbing select-none group focus:outline-none">
+                      <img id="print-uploaded-img" src="" alt="Custom artwork preview" class="max-h-28 max-w-28 object-contain rounded drop-shadow-md pointer-events-none border border-transparent group-hover:border-crimson/50 transition-colors">
+                      <!-- Direct Resize Corner Handles -->
+                      <div id="resize-handle-se" class="hidden group-hover:block absolute -bottom-1.5 -right-1.5 w-4 h-4 bg-crimson border-2 border-white rounded-full cursor-nwse-resize shadow-sm hover:scale-125 transition-transform" title="Drag to resize artwork"></div>
+                      <div id="resize-handle-nw" class="hidden group-hover:block absolute -top-1.5 -left-1.5 w-3.5 h-3.5 bg-navy border-2 border-white rounded-full cursor-nwse-resize shadow-sm"></div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- Pill details on the mockup -->
-              <div class="badge-blur absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/90 py-2 px-3 rounded-xl border border-navy/10 flex items-center justify-between text-xs">
-                <span class="font-semibold text-navy truncate max-w-[65%]" id="mockup-label">Canvas Tote &bull; Raw Canvas</span>
-                <span class="font-mono text-crimson font-bold" id="mockup-unit-tag">~£6.80 / ea</span>
+              <div class="badge-blur absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/95 py-2.5 px-3.5 rounded-2xl border border-navy/10 flex items-center justify-between gap-2 text-xs shadow-md">
+                <span class="font-semibold text-navy truncate flex-1 min-w-0" id="mockup-label">Canvas Tote &bull; Raw Canvas</span>
+                <span class="font-mono text-crimson font-bold shrink-0 bg-crimson/10 px-2 py-0.5 rounded-lg" id="mockup-unit-tag">~£6.80 / ea</span>
               </div>
             </div>
 
-            <p class="text-[11px] text-slate text-center mt-3">
+            <p class="text-[11px] font-medium text-slate text-center mt-3">
               Preview shown is for visual reference. Screen setups are sized to order.
             </p>
           </div>
@@ -269,23 +276,23 @@
             
             <!-- Step 1: Select Garment -->
             <div>
-              <div class="flex justify-between items-center mb-1.5">
+              <div class="flex justify-between items-center mb-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-navy">1. Choose Base Product</label>
-                <span class="text-[11px] text-slate" id="garment-spec-desc">340 GSM Heavy Cotton Canvas</span>
+                <span class="text-[11px] font-medium text-slate truncate max-w-[50%]" id="garment-spec-desc">340 GSM Heavy Cotton Canvas</span>
               </div>
-              <div class="grid grid-cols-2 gap-2.5">
-                <button type="button" class="garment-toggle active p-3 rounded-xl border-2 border-navy bg-canvas flex items-center gap-3 transition-all text-left shadow-sm active:scale-95" data-type="tote">
-                  <div class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-lg shrink-0">👜</div>
-                  <div>
-                    <p class="text-xs font-bold text-navy">Heavy Tote</p>
+              <div class="grid grid-cols-2 gap-3">
+                <button type="button" class="garment-toggle active p-3 sm:p-3.5 rounded-2xl border-2 border-navy bg-canvas flex items-center gap-3 transition-all text-left shadow-sm min-h-[64px] active:scale-95" data-type="tote">
+                  <div class="w-10 h-10 rounded-xl bg-sand flex items-center justify-center text-xl shrink-0">👜</div>
+                  <div class="min-w-0">
+                    <p class="text-xs font-bold text-navy truncate">Heavy Tote</p>
                     <p class="text-[10px] text-crimson font-semibold">From £4.80 ea</p>
                   </div>
                 </button>
 
-                <button type="button" class="garment-toggle p-3 rounded-xl border-2 border-transparent bg-canvas/80 hover:bg-canvas flex items-center gap-3 transition-all text-left active:scale-95" data-type="tshirt">
-                  <div class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-lg shrink-0">👕</div>
-                  <div>
-                    <p class="text-xs font-bold text-navy">Heavy Tee</p>
+                <button type="button" class="garment-toggle p-3 sm:p-3.5 rounded-2xl border-2 border-transparent bg-canvas/80 hover:bg-canvas flex items-center gap-3 transition-all text-left min-h-[64px] active:scale-95" data-type="tshirt">
+                  <div class="w-10 h-10 rounded-xl bg-sand flex items-center justify-center text-xl shrink-0">👕</div>
+                  <div class="min-w-0">
+                    <p class="text-xs font-bold text-navy truncate">Heavy Tee</p>
                     <p class="text-[10px] text-crimson font-semibold">From £8.50 ea</p>
                   </div>
                 </button>
@@ -326,36 +333,38 @@
               </div>
 
               <!-- Custom Image Upload Area -->
-              <div class="mt-2.5">
+              <div class="mt-3">
                 <input type="file" id="custom-image-input" accept="image/*" class="hidden">
-                <button type="button" id="trigger-upload-btn" class="w-full py-2.5 px-3 rounded-xl border-2 border-dashed border-navy/30 bg-canvas/60 hover:bg-canvas hover:border-crimson/50 text-navy text-xs font-bold flex items-center justify-center gap-2 transition-all active:scale-95">
+                <button type="button" id="trigger-upload-btn" class="w-full py-3 px-4 rounded-2xl border-2 border-dashed border-navy/30 bg-canvas/60 hover:bg-canvas hover:border-crimson/50 text-navy text-xs font-bold flex items-center justify-center gap-2 transition-all shadow-sm active:scale-95">
                   <svg class="w-4 h-4 text-crimson shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
                   <span id="upload-btn-label">Upload Your Own Image / Logo</span>
                 </button>
 
-                <div id="upload-preview-bar" class="hidden mt-2 p-2.5 rounded-xl bg-canvas border border-navy/15 text-xs shadow-sm space-y-2">
-                  <div class="flex items-center justify-between">
-                    <div class="flex items-center gap-2.5 overflow-hidden">
-                      <img id="upload-thumb" src="" alt="Thumbnail" class="w-9 h-9 object-contain rounded-lg bg-sand border border-navy/10 shrink-0">
-                      <div class="min-w-0">
+                <div id="upload-preview-bar" class="hidden mt-2.5 p-3 rounded-2xl bg-canvas border border-navy/15 text-xs shadow-sm space-y-2.5">
+                  <div class="flex items-center justify-between gap-2">
+                    <div class="flex items-center gap-2.5 overflow-hidden min-w-0">
+                      <img id="upload-thumb" src="" alt="Thumbnail" class="w-10 h-10 object-contain rounded-xl bg-sand border border-navy/10 shrink-0">
+                      <div class="min-w-0 flex-1">
                         <p id="upload-filename" class="truncate font-bold text-navy text-xs">filename.png</p>
-                        <p id="upload-filesize" class="text-[10px] text-slate">Image loaded in editor</p>
+                        <p id="upload-filesize" class="text-[10px] text-slate">Direct drag &amp; corner resize active</p>
                       </div>
                     </div>
-                    <div class="flex items-center gap-1 shrink-0">
-                      <button type="button" id="reselect-image-btn" class="text-[11px] font-semibold text-navy hover:text-crimson bg-sand hover:bg-sand/80 px-2 py-1 rounded-lg transition-colors">
+                    <div class="flex items-center gap-1.5 shrink-0">
+                      <button type="button" id="reselect-image-btn" class="text-xs font-semibold text-navy hover:text-crimson bg-sand hover:bg-sand/80 px-2.5 py-1.5 rounded-xl transition-colors">
                         Change
                       </button>
-                      <button type="button" id="remove-upload-btn" class="text-xs font-bold text-crimson hover:bg-crimson/10 p-1 rounded-lg transition-colors" title="Remove image">
+                      <button type="button" id="remove-upload-btn" class="text-xs font-bold text-crimson hover:bg-crimson/10 p-1.5 rounded-xl transition-colors" title="Remove image">
                         ✕
                       </button>
                     </div>
                   </div>
 
-                  <!-- Image Adjustment Controls (Resize & Position) -->
-                  <div class="pt-2 border-t border-navy/10 space-y-2">
+                  <!-- Image Adjustment Controls (Resize & Position Sliders + Drag Tip) -->
+                  <div class="pt-2.5 border-t border-navy/10 space-y-2">
                     <div class="flex items-center justify-between">
-                      <span class="text-[10px] font-bold text-navy uppercase">Adjust Artwork on Garment</span>
+                      <span class="text-[10px] font-bold text-navy uppercase tracking-wider flex items-center gap-1">
+                        <span>🖐️ Drag on bag to move</span>
+                      </span>
                       <button type="button" id="reset-img-transform-btn" class="text-[10px] font-bold text-crimson hover:underline">
                         Reset Position &amp; Size
                       </button>
@@ -367,30 +376,29 @@
                         <span>Size / Scale</span>
                         <span id="img-scale-badge" class="font-mono font-bold text-navy">100%</span>
                       </div>
-                      <input type="range" id="img-scale-slider" min="40" max="200" value="100" step="5" class="w-full accent-crimson h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
+                      <input type="range" id="img-scale-slider" min="30" max="220" value="100" step="2" class="w-full accent-crimson h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
                     </div>
 
                     <!-- Horizontal & Vertical Position Sliders -->
-                    <div class="grid grid-cols-2 gap-2">
+                    <div class="grid grid-cols-2 gap-2.5">
                       <div>
                         <div class="flex justify-between text-[10px] text-slate mb-1">
                           <span>Horizontal (X)</span>
                           <span id="img-x-badge" class="font-mono font-bold text-navy">0px</span>
                         </div>
-                        <input type="range" id="img-x-slider" min="-45" max="45" value="0" step="1" class="w-full accent-navy h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
+                        <input type="range" id="img-x-slider" min="-60" max="60" value="0" step="1" class="w-full accent-navy h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
                       </div>
                       <div>
                         <div class="flex justify-between text-[10px] text-slate mb-1">
                           <span>Vertical (Y)</span>
                           <span id="img-y-badge" class="font-mono font-bold text-navy">0px</span>
                         </div>
-                        <input type="range" id="img-y-slider" min="-45" max="45" value="0" step="1" class="w-full accent-navy h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
+                        <input type="range" id="img-y-slider" min="-60" max="60" value="0" step="1" class="w-full accent-navy h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
 
             <!-- Step 4: Batch Size / Quantity Slider -->
@@ -433,7 +441,7 @@
             </div>
 
             <!-- Action: Request Official Quote with this spec -->
-            <button id="use-custom-spec-btn" class="w-full py-3.5 rounded-xl bg-crimson text-white hover:bg-navy font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 active:scale-95">
+            <button id="use-custom-spec-btn" class="w-full py-4 px-5 rounded-2xl bg-crimson text-white hover:bg-navy font-bold text-xs uppercase tracking-wider transition-all shadow-lg shadow-crimson/20 flex items-center justify-center gap-2.5 active:scale-95">
               <span>Send This Specification for Quote</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
             </button>
@@ -1200,7 +1208,9 @@
     const teeBodyPath = document.getElementById('tee-body-path');
     const printGraphicIcon = document.getElementById('print-graphic-icon');
     const printGraphicText = document.getElementById('print-graphic-text');
+    const uploadedImgWrapper = document.getElementById('uploaded-img-wrapper');
     const printUploadedImg = document.getElementById('print-uploaded-img');
+    const resizeHandleSe = document.getElementById('resize-handle-se');
     const colorNameDisplay = document.getElementById('color-name-display');
     const mockupLabel = document.getElementById('mockup-label');
     const printOverlay = document.getElementById('print-overlay');
@@ -1267,11 +1277,11 @@
         printGraphicIcon.classList.add('hidden');
         printGraphicText.classList.add('hidden');
         printUploadedImg.src = customizerState.uploadedImage.dataUrl;
-        printUploadedImg.classList.remove('hidden');
+        uploadedImgWrapper.classList.remove('hidden');
 
-        // Apply reposition & resize transform
+        // Apply reposition & resize transform to wrapper
         const scaleVal = customizerState.imgScale / 100;
-        printUploadedImg.style.transform = `translate(${customizerState.imgX}px, ${customizerState.imgY}px) scale(${scaleVal})`;
+        uploadedImgWrapper.style.transform = `translate(${customizerState.imgX}px, ${customizerState.imgY}px) scale(${scaleVal})`;
 
         designTypeBadge.textContent = "Custom Image Upload";
         designTypeBadge.className = "text-[10px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full";
@@ -1279,10 +1289,13 @@
         uploadPreviewBar.classList.remove('hidden');
         uploadThumb.src = customizerState.uploadedImage.dataUrl;
         uploadFilename.textContent = customizerState.uploadedImage.filename;
-        uploadFilesize.textContent = `${customizerState.uploadedImage.filesize} • Custom print on garment`;
+        uploadFilesize.textContent = `${customizerState.uploadedImage.filesize} • Direct drag & resize active`;
         uploadBtnLabel.textContent = `Uploaded: ${customizerState.uploadedImage.filename}`;
 
-        // Update slider badges
+        // Update slider values and badges
+        if (imgScaleSlider) imgScaleSlider.value = customizerState.imgScale;
+        if (imgXSlider) imgXSlider.value = customizerState.imgX;
+        if (imgYSlider) imgYSlider.value = customizerState.imgY;
         if (imgScaleBadge) imgScaleBadge.textContent = `${customizerState.imgScale}%`;
         if (imgXBadge) imgXBadge.textContent = `${customizerState.imgX > 0 ? '+' : ''}${customizerState.imgX}px`;
         if (imgYBadge) imgYBadge.textContent = `${customizerState.imgY > 0 ? '+' : ''}${customizerState.imgY}px`;
@@ -1293,7 +1306,7 @@
           b.classList.add('border-transparent', 'bg-canvas/70');
         });
       } else {
-        printUploadedImg.classList.add('hidden');
+        uploadedImgWrapper.classList.add('hidden');
         printUploadedImg.src = '';
         printGraphicIcon.classList.remove('hidden');
         printGraphicText.classList.remove('hidden');
@@ -1330,6 +1343,68 @@
       return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
     }
 
+    // Direct Pointer Drag & Resize Handle Interactions on Mockup
+    let isDraggingImg = false;
+    let isResizingImg = false;
+    let startX = 0;
+    let startY = 0;
+    let startScale = 100;
+    let startXOffset = 0;
+    let startYOffset = 0;
+
+    if (uploadedImgWrapper) {
+      uploadedImgWrapper.addEventListener('pointerdown', (e) => {
+        if (!customizerState.uploadedImage) return;
+
+        // Check if user clicked on corner resize handle
+        if (e.target && e.target.id === 'resize-handle-se') {
+          isResizingImg = true;
+          isDraggingImg = false;
+          startX = e.clientX;
+          startScale = customizerState.imgScale;
+        } else {
+          isDraggingImg = true;
+          isResizingImg = false;
+          startX = e.clientX;
+          startY = e.clientY;
+          startXOffset = customizerState.imgX;
+          startYOffset = customizerState.imgY;
+        }
+
+        uploadedImgWrapper.setPointerCapture(e.pointerId);
+        e.preventDefault();
+      });
+
+      uploadedImgWrapper.addEventListener('pointermove', (e) => {
+        if (isDraggingImg) {
+          const deltaX = e.clientX - startX;
+          const deltaY = e.clientY - startY;
+          // Clamp position within -60px to 60px
+          customizerState.imgX = Math.max(-60, Math.min(60, Math.round(startXOffset + deltaX)));
+          customizerState.imgY = Math.max(-60, Math.min(60, Math.round(startYOffset + deltaY)));
+          updateMockup();
+        } else if (isResizingImg) {
+          const deltaX = e.clientX - startX;
+          // Scale proportional to drag distance (e.g. 1px = 1% scale)
+          customizerState.imgScale = Math.max(30, Math.min(220, Math.round(startScale + deltaX)));
+          updateMockup();
+        }
+      });
+
+      const endInteraction = (e) => {
+        if (isDraggingImg || isResizingImg) {
+          isDraggingImg = false;
+          isResizingImg = false;
+          try {
+            uploadedImgWrapper.releasePointerCapture(e.pointerId);
+          } catch(err) {}
+        }
+      };
+
+      uploadedImgWrapper.addEventListener('pointerup', endInteraction);
+      uploadedImgWrapper.addEventListener('pointercancel', endInteraction);
+    }
+
     // Process uploaded image file in Customizer Editor
     function handleCustomizerImageFile(file) {
       if (!file || !file.type.startsWith('image/')) {
@@ -1344,10 +1419,14 @@
           filename: file.name,
           filesize: formatBytes(file.size)
         };
+        // Reset transforms on new upload
+        customizerState.imgScale = 100;
+        customizerState.imgX = 0;
+        customizerState.imgY = 0;
         updateMockup();
         // Also sync automatically to Quote Form
         setQuoteFormArtwork(e.target.result, file.name);
-        showToast(`Image "${file.name}" rendered in live editor!`);
+        showToast(`Image "${file.name}" ready! Drag on bag to move, corner handle to resize.`);
       };
       reader.readAsDataURL(file);
     }
