@@ -1641,6 +1641,10 @@
         setQuoteFormArtwork(customizerState.uploadedImage.dataUrl, customizerState.uploadedImage.filename);
       }
 
+      const quoteFormSection = document.getElementById('quote-form');
+      if (quoteFormSection) {
+        quoteFormSection.scrollIntoView({ behavior: 'smooth' });
+      }
       window.location.hash = '#quote-form';
       showToast("Design specs & artwork attached to your quote form!");
     });
