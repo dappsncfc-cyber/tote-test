@@ -333,24 +333,64 @@
                   <span id="upload-btn-label">Upload Your Own Image / Logo</span>
                 </button>
 
-                <div id="upload-preview-bar" class="hidden mt-2 p-2.5 rounded-xl bg-canvas border border-navy/15 flex items-center justify-between text-xs shadow-sm">
-                  <div class="flex items-center gap-2.5 overflow-hidden">
-                    <img id="upload-thumb" src="" alt="Thumbnail" class="w-9 h-9 object-contain rounded-lg bg-sand border border-navy/10 shrink-0">
-                    <div class="min-w-0">
-                      <p id="upload-filename" class="truncate font-bold text-navy text-xs">filename.png</p>
-                      <p id="upload-filesize" class="text-[10px] text-slate">Image loaded in editor</p>
+                <div id="upload-preview-bar" class="hidden mt-2 p-2.5 rounded-xl bg-canvas border border-navy/15 text-xs shadow-sm space-y-2">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2.5 overflow-hidden">
+                      <img id="upload-thumb" src="" alt="Thumbnail" class="w-9 h-9 object-contain rounded-lg bg-sand border border-navy/10 shrink-0">
+                      <div class="min-w-0">
+                        <p id="upload-filename" class="truncate font-bold text-navy text-xs">filename.png</p>
+                        <p id="upload-filesize" class="text-[10px] text-slate">Image loaded in editor</p>
+                      </div>
+                    </div>
+                    <div class="flex items-center gap-1 shrink-0">
+                      <button type="button" id="reselect-image-btn" class="text-[11px] font-semibold text-navy hover:text-crimson bg-sand hover:bg-sand/80 px-2 py-1 rounded-lg transition-colors">
+                        Change
+                      </button>
+                      <button type="button" id="remove-upload-btn" class="text-xs font-bold text-crimson hover:bg-crimson/10 p-1 rounded-lg transition-colors" title="Remove image">
+                        ✕
+                      </button>
                     </div>
                   </div>
-                  <div class="flex items-center gap-1 shrink-0">
-                    <button type="button" id="reselect-image-btn" class="text-[11px] font-semibold text-navy hover:text-crimson bg-sand hover:bg-sand/80 px-2 py-1 rounded-lg transition-colors">
-                      Change
-                    </button>
-                    <button type="button" id="remove-upload-btn" class="text-xs font-bold text-crimson hover:bg-crimson/10 p-1 rounded-lg transition-colors" title="Remove image">
-                      ✕
-                    </button>
+
+                  <!-- Image Adjustment Controls (Resize & Position) -->
+                  <div class="pt-2 border-t border-navy/10 space-y-2">
+                    <div class="flex items-center justify-between">
+                      <span class="text-[10px] font-bold text-navy uppercase">Adjust Artwork on Garment</span>
+                      <button type="button" id="reset-img-transform-btn" class="text-[10px] font-bold text-crimson hover:underline">
+                        Reset Position &amp; Size
+                      </button>
+                    </div>
+
+                    <!-- Size / Scale Slider -->
+                    <div>
+                      <div class="flex justify-between text-[10px] text-slate mb-1">
+                        <span>Size / Scale</span>
+                        <span id="img-scale-badge" class="font-mono font-bold text-navy">100%</span>
+                      </div>
+                      <input type="range" id="img-scale-slider" min="40" max="200" value="100" step="5" class="w-full accent-crimson h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <!-- Horizontal & Vertical Position Sliders -->
+                    <div class="grid grid-cols-2 gap-2">
+                      <div>
+                        <div class="flex justify-between text-[10px] text-slate mb-1">
+                          <span>Horizontal (X)</span>
+                          <span id="img-x-badge" class="font-mono font-bold text-navy">0px</span>
+                        </div>
+                        <input type="range" id="img-x-slider" min="-45" max="45" value="0" step="1" class="w-full accent-navy h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
+                      </div>
+                      <div>
+                        <div class="flex justify-between text-[10px] text-slate mb-1">
+                          <span>Vertical (Y)</span>
+                          <span id="img-y-badge" class="font-mono font-bold text-navy">0px</span>
+                        </div>
+                        <input type="range" id="img-y-slider" min="-45" max="45" value="0" step="1" class="w-full accent-navy h-1.5 bg-sand rounded-lg appearance-none cursor-pointer">
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+            </div>
             </div>
 
             <!-- Step 4: Batch Size / Quantity Slider -->
@@ -936,7 +976,10 @@
       design: 'botanical',
       designName: 'Botanica',
       quantity: 50,
-      uploadedImage: null // { dataUrl, filename, filesize }
+      uploadedImage: null, // { dataUrl, filename, filesize }
+      imgScale: 100,
+      imgX: 0,
+      imgY: 0
     };
 
     // Quote Form Attached Artwork State
@@ -1163,7 +1206,7 @@
     const printOverlay = document.getElementById('print-overlay');
     const designTypeBadge = document.getElementById('design-type-badge');
 
-    // Custom upload elements in customizer
+    // Custom upload & adjustment elements in customizer
     const customImageInput = document.getElementById('custom-image-input');
     const triggerUploadBtn = document.getElementById('trigger-upload-btn');
     const uploadBtnLabel = document.getElementById('upload-btn-label');
@@ -1173,6 +1216,13 @@
     const uploadFilesize = document.getElementById('upload-filesize');
     const reselectImageBtn = document.getElementById('reselect-image-btn');
     const removeUploadBtn = document.getElementById('remove-upload-btn');
+    const resetImgTransformBtn = document.getElementById('reset-img-transform-btn');
+    const imgScaleSlider = document.getElementById('img-scale-slider');
+    const imgXSlider = document.getElementById('img-x-slider');
+    const imgYSlider = document.getElementById('img-y-slider');
+    const imgScaleBadge = document.getElementById('img-scale-badge');
+    const imgXBadge = document.getElementById('img-x-badge');
+    const imgYBadge = document.getElementById('img-y-badge');
 
     // Quote form artwork elements
     const quoteArtworkFileInput = document.getElementById('quote-artwork-file-input');
@@ -1219,6 +1269,10 @@
         printUploadedImg.src = customizerState.uploadedImage.dataUrl;
         printUploadedImg.classList.remove('hidden');
 
+        // Apply reposition & resize transform
+        const scaleVal = customizerState.imgScale / 100;
+        printUploadedImg.style.transform = `translate(${customizerState.imgX}px, ${customizerState.imgY}px) scale(${scaleVal})`;
+
         designTypeBadge.textContent = "Custom Image Upload";
         designTypeBadge.className = "text-[10px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-full";
 
@@ -1227,6 +1281,11 @@
         uploadFilename.textContent = customizerState.uploadedImage.filename;
         uploadFilesize.textContent = `${customizerState.uploadedImage.filesize} • Custom print on garment`;
         uploadBtnLabel.textContent = `Uploaded: ${customizerState.uploadedImage.filename}`;
+
+        // Update slider badges
+        if (imgScaleBadge) imgScaleBadge.textContent = `${customizerState.imgScale}%`;
+        if (imgXBadge) imgXBadge.textContent = `${customizerState.imgX > 0 ? '+' : ''}${customizerState.imgX}px`;
+        if (imgYBadge) imgYBadge.textContent = `${customizerState.imgY > 0 ? '+' : ''}${customizerState.imgY}px`;
 
         // De-select sample design buttons
         designBtns.forEach(b => {
@@ -1302,8 +1361,49 @@
       }
     });
 
+    // Image adjustment slider listeners
+    if (imgScaleSlider) {
+      imgScaleSlider.addEventListener('input', (e) => {
+        customizerState.imgScale = parseInt(e.target.value);
+        updateMockup();
+      });
+    }
+
+    if (imgXSlider) {
+      imgXSlider.addEventListener('input', (e) => {
+        customizerState.imgX = parseInt(e.target.value);
+        updateMockup();
+      });
+    }
+
+    if (imgYSlider) {
+      imgYSlider.addEventListener('input', (e) => {
+        customizerState.imgY = parseInt(e.target.value);
+        updateMockup();
+      });
+    }
+
+    if (resetImgTransformBtn) {
+      resetImgTransformBtn.addEventListener('click', () => {
+        customizerState.imgScale = 100;
+        customizerState.imgX = 0;
+        customizerState.imgY = 0;
+        if (imgScaleSlider) imgScaleSlider.value = 100;
+        if (imgXSlider) imgXSlider.value = 0;
+        if (imgYSlider) imgYSlider.value = 0;
+        updateMockup();
+        showToast("Artwork position & size reset");
+      });
+    }
+
     removeUploadBtn.addEventListener('click', () => {
       customizerState.uploadedImage = null;
+      customizerState.imgScale = 100;
+      customizerState.imgX = 0;
+      customizerState.imgY = 0;
+      if (imgScaleSlider) imgScaleSlider.value = 100;
+      if (imgXSlider) imgXSlider.value = 0;
+      if (imgYSlider) imgYSlider.value = 0;
       customImageInput.value = '';
 
       // Re-activate first design button (botanical)
