@@ -6,7 +6,7 @@
   <title>The Good, The Bag and The Ugly | Custom Apparel &amp; Printworks</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -14,17 +14,24 @@
         extend: {
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            serif: ['"Fraunces"', 'serif'],
+            display: ['"Paytone One"', 'cursive', 'sans-serif'],
           },
           colors: {
-            canvas: '#FAF5ED',
-            sand: '#EFE3D3',
-            sungold: '#ECA82B',
-            sunset: '#E06D3B',
-            terracotta: '#C85236',
-            forest: '#3D5A45',
-            earth: '#281B15',
-            warmgray: '#8C7A6B'
+            canvas: '#FAF8F5',
+            sand: '#EFE8DE',
+            navy: {
+              DEFAULT: '#0C233F',
+              dark: '#07162A',
+              light: '#1B365D',
+              subtle: '#234473'
+            },
+            crimson: {
+              DEFAULT: '#D0232B',
+              hover: '#B11820',
+              light: '#F8DCDD'
+            },
+            slate: '#556880',
+            cream: '#FFFDF9'
           }
         }
       }
@@ -32,8 +39,8 @@
   </script>
   <style>
     body {
-      background-color: #FAF5ED;
-      color: #281B15;
+      background-color: #FAF8F5;
+      color: #0C233F;
       overflow-x: hidden;
     }
     .badge-blur {
@@ -45,25 +52,25 @@
       width: 6px;
     }
     ::-webkit-scrollbar-track {
-      background: #EFE3D3;
+      background: #EFE8DE;
     }
     ::-webkit-scrollbar-thumb {
-      background: #8C7A6B;
+      background: #0C233F;
       border-radius: 9999px;
     }
     .hero-glow {
-      background: radial-gradient(circle at 50% 40%, rgba(236, 168, 43, 0.15) 0%, rgba(224, 109, 59, 0.08) 45%, rgba(250, 245, 237, 0) 75%);
+      background: radial-gradient(circle at 50% 40%, rgba(208, 35, 43, 0.12) 0%, rgba(12, 35, 63, 0.08) 50%, rgba(250, 248, 245, 0) 80%);
     }
   </style>
 </head>
-<body class="font-sans antialiased selection:bg-terracotta selection:text-white pb-16 sm:pb-0">
+<body class="font-sans antialiased selection:bg-crimson selection:text-white pb-16 sm:pb-0">
 
-  <aside class="bg-forest text-sand text-xs sm:text-sm font-medium py-2.5 px-4 text-center tracking-wide flex items-center justify-center gap-2">
-    <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+  <aside class="bg-navy text-sand text-xs sm:text-sm font-medium py-2.5 px-4 text-center tracking-wide flex items-center justify-center gap-2 border-b border-navy-light">
+    <span class="inline-block w-2 h-2 rounded-full bg-crimson animate-pulse shrink-0"></span>
     <span>Custom Screen Printing &bull; Low 15-piece minimums &bull; Transparent volume tier pricing</span>
   </aside>
 
-  <header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-earth/10 transition-all duration-300">
+  <header class="sticky top-0 z-40 bg-canvas/95 backdrop-blur-md border-b border-navy/10 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between py-2">
       <!-- Logo -->
       <a href="#" class="flex items-center gap-3 group">
@@ -71,24 +78,24 @@
       </a>
 
       <!-- Desktop Nav Links -->
-      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-earth/80">
-        <a href="#customizer" class="hover:text-terracotta transition-colors flex items-center gap-1.5 font-semibold text-terracotta">
+      <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-navy/80">
+        <a href="#customizer" class="hover:text-crimson transition-colors flex items-center gap-1.5 font-semibold text-crimson">
           <span>Cost Estimator</span>
-          <span class="bg-terracotta/10 text-terracotta text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Interactive</span>
+          <span class="bg-crimson/10 text-crimson text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Interactive</span>
         </a>
-        <a href="#pricing-guide" class="hover:text-terracotta transition-colors">Pricing Tiers</a>
-        <a href="#shop" class="hover:text-terracotta transition-colors">Garment Catalog</a>
-        <a href="#quality" class="hover:text-terracotta transition-colors">Fabrics &amp; Inks</a>
-        <a href="#quote-form" class="hover:text-terracotta transition-colors">Request Quote</a>
+        <a href="#pricing-guide" class="hover:text-crimson transition-colors">Pricing Tiers</a>
+        <a href="#shop" class="hover:text-crimson transition-colors">Garment Catalog</a>
+        <a href="#quality" class="hover:text-crimson transition-colors">Fabrics &amp; Inks</a>
+        <a href="#quote-form" class="hover:text-crimson transition-colors">Request Quote</a>
       </nav>
 
       <!-- Action Button -->
       <div class="flex items-center gap-2 sm:gap-3">
-        <a href="#customizer" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-earth hover:text-terracotta py-2 px-3 transition-colors">
+        <a href="#customizer" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-navy hover:text-crimson py-2 px-3 transition-colors">
           <span>Calculator</span>
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
         </a>
-        <a href="#quote-form" class="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-full bg-earth text-sand text-xs font-bold uppercase tracking-wider hover:bg-terracotta transition-all shadow active:scale-95">
+        <a href="#quote-form" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-crimson text-white text-xs font-bold uppercase tracking-wider hover:bg-navy transition-all shadow-md active:scale-95">
           Get Free Quote
         </a>
       </div>
@@ -102,52 +109,50 @@
         <div class="lg:col-span-7 space-y-5 sm:space-y-6 text-center lg:text-left">
           <!-- Featured Logo Banner in Hero Section -->
           <div class="flex justify-center lg:justify-start">
-            <div class="p-3 sm:p-4 bg-sand/80 backdrop-blur-sm rounded-3xl border border-earth/10 shadow-md inline-block max-w-full">
+            <div class="p-3 sm:p-4 bg-navy rounded-3xl border border-navy-light shadow-xl inline-block max-w-full">
               <img src="assets/logo.png" alt="The Good, The Bag and The Ugly Logo" class="w-full max-w-sm sm:max-w-md md:max-w-lg h-auto object-contain rounded-2xl" />
             </div>
           </div>
 
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sand border border-earth/10 text-xs font-semibold text-forest">
-            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-            </svg>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand border border-navy/10 text-xs font-semibold text-navy">
+            <span class="w-2 h-2 rounded-full bg-crimson shrink-0"></span>
             <span>Screen Printed Totes From £4.80 &bull; Tees From £8.50</span>
           </div>
           
-          <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-earth leading-[1.12]">
+          <h1 class="font-display text-3xl sm:text-5xl lg:text-6xl tracking-tight text-navy leading-[1.12]">
             Custom screen printed merch with <br/>
-            <span class="italic font-normal text-sunset">bold personality</span> <br/>
+            <span class="text-crimson">bold retro style</span> <br/>
             &amp; transparent pricing.
           </h1>
 
-          <p class="text-sm sm:text-base text-warmgray max-w-xl mx-auto lg:mx-0 leading-relaxed">
+          <p class="text-sm sm:text-base text-slate max-w-xl mx-auto lg:mx-0 leading-relaxed">
             Planning retro-crafted merch for your studio, cafe, band, or lifestyle brand? Test our interactive preview generator below to see custom mockups and get instant batch estimates in seconds.
           </p>
 
           <!-- Hero Buttons -->
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
-            <a href="#customizer" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-terracotta text-white font-semibold text-sm hover:bg-earth transition-all duration-300 text-center shadow-lg shadow-terracotta/20 flex items-center justify-center gap-2 active:scale-95">
+            <a href="#customizer" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-crimson text-white font-bold text-xs uppercase tracking-wider hover:bg-navy transition-all duration-300 text-center shadow-lg shadow-crimson/20 flex items-center justify-center gap-2 active:scale-95">
               <span>Launch Cost Estimator</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </a>
-            <a href="#shop" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-sand text-earth border border-earth/10 font-semibold text-sm hover:bg-earth hover:text-sand transition-all text-center">
+            <a href="#shop" class="w-full sm:w-auto px-7 py-3.5 rounded-full bg-sand text-navy border border-navy/10 font-bold text-xs uppercase tracking-wider hover:bg-navy hover:text-white transition-all text-center">
               View Garment Specs &amp; Rates
             </a>
           </div>
 
           <!-- Trust Badges -->
-          <div class="pt-5 border-t border-earth/10 grid grid-cols-3 gap-3 sm:gap-4 text-center lg:text-left">
+          <div class="pt-5 border-t border-navy/10 grid grid-cols-3 gap-3 sm:gap-4 text-center lg:text-left">
             <div>
-              <p class="text-lg sm:text-2xl font-bold font-serif text-earth">15 pcs</p>
-              <p class="text-[11px] sm:text-xs text-warmgray">Low Minimum Order</p>
+              <p class="text-lg sm:text-2xl font-bold font-display text-navy">15 pcs</p>
+              <p class="text-[11px] sm:text-xs text-slate">Low Minimum Order</p>
             </div>
             <div>
-              <p class="text-lg sm:text-2xl font-bold font-serif text-earth">24 Hrs</p>
-              <p class="text-[11px] sm:text-xs text-warmgray">Fast Quote Turnaround</p>
+              <p class="text-lg sm:text-2xl font-bold font-display text-navy">24 Hrs</p>
+              <p class="text-[11px] sm:text-xs text-slate">Fast Quote Turnaround</p>
             </div>
             <div>
-              <p class="text-lg sm:text-2xl font-bold font-serif text-earth">100%</p>
-              <p class="text-[11px] sm:text-xs text-warmgray">Quality Guaranteed</p>
+              <p class="text-lg sm:text-2xl font-bold font-display text-navy">100%</p>
+              <p class="text-[11px] sm:text-xs text-slate">Quality Guaranteed</p>
             </div>
           </div>
         </div>
@@ -157,45 +162,45 @@
             <div class="grid grid-cols-2 gap-3 sm:gap-4">
               <!-- Card 1: Tote showcase -->
               <div class="space-y-3 sm:space-y-4 pt-4 sm:pt-6">
-                <div class="group relative rounded-2xl overflow-hidden bg-sand shadow-md border border-earth/5 transition-transform hover:-translate-y-1 duration-300">
+                <div class="group relative rounded-2xl overflow-hidden bg-sand shadow-md border border-navy/5 transition-transform hover:-translate-y-1 duration-300">
                   <img src="https://images.unsplash.com/photo-1597484662317-9bd7bdda2907?auto=format&fit=crop&w=700&q=80" 
                        alt="Printed botanical tote bag" 
                        class="w-full h-44 sm:h-56 object-cover object-center"
                        onerror="this.src='https://placehold.co/400x500/F3EFE6/1E1B18?text=Canvas+Tote'">
                   <div class="p-3 bg-white/95">
-                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-terracotta">Heavy 340 GSM</span>
-                    <h3 class="text-xs font-bold text-earth truncate">Classic Gusset Tote</h3>
-                    <p class="text-xs font-semibold text-emerald-800 mt-0.5">From £4.80 / unit</p>
+                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-crimson">Heavy 340 GSM</span>
+                    <h3 class="text-xs font-bold text-navy truncate">Classic Gusset Tote</h3>
+                    <p class="text-xs font-semibold text-crimson mt-0.5">From £4.80 / unit</p>
                   </div>
                 </div>
 
-                <div class="p-3.5 sm:p-4 rounded-2xl bg-forest text-sand text-xs flex flex-col justify-between shadow-sm">
-                  <p class="italic font-serif text-xs sm:text-sm">"The quote was crystal clear with zero hidden setup screen fees."</p>
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-navy text-sand text-xs flex flex-col justify-between shadow-sm">
+                  <p class="italic font-sans text-xs sm:text-sm">"The quote was crystal clear with zero hidden setup screen fees."</p>
                   <p class="mt-2 font-semibold text-[10px] sm:text-[11px] text-sand/80">&mdash; Common Grounds Cafe</p>
                 </div>
               </div>
 
               <!-- Card 2: T-shirt showcase -->
               <div class="space-y-3 sm:space-y-4">
-                <div class="group relative rounded-2xl overflow-hidden bg-sand shadow-md border border-earth/5 transition-transform hover:-translate-y-1 duration-300">
+                <div class="group relative rounded-2xl overflow-hidden bg-sand shadow-md border border-navy/5 transition-transform hover:-translate-y-1 duration-300">
                   <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=700&q=80" 
                        alt="Printed Graphic T-Shirt" 
                        class="w-full h-52 sm:h-64 object-cover object-center"
                        onerror="this.src='https://placehold.co/400x550/F3EFE6/1E1B18?text=Graphic+Tee'">
                   <div class="p-3 bg-white/95">
-                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-forest">220 GSM Combed</span>
-                    <h3 class="text-xs font-bold text-earth truncate">Boxy Drop Tee</h3>
-                    <p class="text-xs font-semibold text-emerald-800 mt-0.5">From £8.50 / unit</p>
+                    <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-navy">220 GSM Combed</span>
+                    <h3 class="text-xs font-bold text-navy truncate">Boxy Drop Tee</h3>
+                    <p class="text-xs font-semibold text-crimson mt-0.5">From £8.50 / unit</p>
                   </div>
                 </div>
 
-                <div class="p-3.5 sm:p-4 rounded-2xl bg-sand border border-earth/10 flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-full bg-terracotta text-white flex items-center justify-center shrink-0 text-sm">
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-sand border border-navy/10 flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-full bg-crimson text-white flex items-center justify-center shrink-0 text-sm font-bold">
                     ✓
                   </div>
                   <div class="text-[11px] sm:text-xs leading-tight">
-                    <p class="font-bold text-earth">Free Digital Proofs</p>
-                    <p class="text-warmgray text-[10px]">Before any printing begins</p>
+                    <p class="font-bold text-navy">Free Digital Proofs</p>
+                    <p class="text-slate text-[10px]">Before any printing begins</p>
                   </div>
                 </div>
               </div>
@@ -206,54 +211,54 @@
     </div>
   </section>
 
-  <section id="customizer" class="py-14 sm:py-20 bg-canvas relative border-t border-earth/10">
+  <section id="customizer" class="py-14 sm:py-20 bg-canvas relative border-t border-navy/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-        <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Interactive Mockup &amp; Pricing Tool</span>
-        <h2 class="text-2xl sm:text-4xl font-serif font-bold text-earth mt-1">Instant Cost &amp; Design Estimator</h2>
-        <p class="text-xs sm:text-sm text-warmgray mt-2">Experiment with garment styles, fabric colors, and artwork motifs. Adjust your batch quantity to see live unit pricing discounts.</p>
+        <span class="text-xs font-bold uppercase tracking-widest text-crimson">Interactive Mockup &amp; Pricing Tool</span>
+        <h2 class="text-2xl sm:text-4xl font-display text-navy mt-1">Instant Cost &amp; Design Estimator</h2>
+        <p class="text-xs sm:text-sm text-slate mt-2">Experiment with garment styles, fabric colors, and artwork motifs. Adjust your batch quantity to see live unit pricing discounts.</p>
       </div>
 
-      <div class="bg-sand/70 rounded-3xl p-4 sm:p-8 lg:p-10 border border-earth/10 shadow-sm max-w-5xl mx-auto">
+      <div class="bg-sand/70 rounded-3xl p-4 sm:p-8 lg:p-10 border border-navy/10 shadow-sm max-w-5xl mx-auto">
         <div class="grid lg:grid-cols-12 gap-8 items-start">
           
           <!-- Mockup Visual Display Screen (Left / Top on mobile) -->
           <div class="lg:col-span-6 flex flex-col items-center justify-center">
-            <div id="mockup-frame" class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-2xl bg-white border border-earth/10 shadow-inner flex items-center justify-center p-4 sm:p-6 overflow-hidden transition-colors duration-300">
+            <div id="mockup-frame" class="relative w-full max-w-xs sm:max-w-sm aspect-[4/5] rounded-2xl bg-white border border-navy/10 shadow-inner flex items-center justify-center p-4 sm:p-6 overflow-hidden transition-colors duration-300">
               
               <!-- Apparel Silhouette Mockup Graphic -->
               <div id="mockup-silhouette" class="relative w-56 sm:w-64 h-72 sm:h-80 flex items-center justify-center">
                 <svg id="apparel-svg" viewBox="0 0 200 240" class="w-full h-full drop-shadow-md transition-all duration-300">
                   <!-- Default is Tote Bag path -->
                   <g id="svg-tote-group">
-                    <path d="M70,70 C70,25 130,25 130,70" fill="none" stroke="#2c2825" stroke-width="11" stroke-linecap="round" />
-                    <path id="tote-body-path" d="M40,70 L160,70 L152,220 C152,226 146,230 140,230 L60,230 C54,230 48,226 48,220 Z" fill="#EAE3D2" stroke="#2c2825" stroke-width="3" />
+                    <path d="M70,70 C70,25 130,25 130,70" fill="none" stroke="#0C233F" stroke-width="11" stroke-linecap="round" />
+                    <path id="tote-body-path" d="M40,70 L160,70 L152,220 C152,226 146,230 140,230 L60,230 C54,230 48,226 48,220 Z" fill="#EAE3D2" stroke="#0C233F" stroke-width="3" />
                   </g>
                   <g id="svg-tee-group" style="display: none;">
-                    <path id="tee-body-path" d="M70,40 C85,55 115,55 130,40 L180,68 L160,105 L145,95 L145,215 C145,222 140,225 130,225 L70,225 C60,225 55,222 55,215 L55,95 L40,105 L20,68 Z" fill="#EAE3D2" stroke="#2c2825" stroke-width="3"/>
+                    <path id="tee-body-path" d="M70,40 C85,55 115,55 130,40 L180,68 L160,105 L145,95 L145,215 C145,222 140,225 130,225 L70,225 C60,225 55,222 55,215 L55,95 L40,105 L20,68 Z" fill="#EAE3D2" stroke="#0C233F" stroke-width="3"/>
                   </g>
                 </svg>
 
                 <!-- Center Print Placement -->
                 <div id="print-overlay" class="absolute w-28 h-28 flex items-center justify-center pointer-events-none transition-all duration-300" style="top: 48%;">
                   <div id="print-badge" class="p-2 text-center">
-                    <div id="print-graphic-icon" class="text-earth">
+                    <div id="print-graphic-icon" class="text-navy">
                       <!-- SVG icon injected here -->
                     </div>
-                    <span id="print-graphic-text" class="text-[10px] font-bold uppercase tracking-wider block mt-1 text-earth">Botanica</span>
+                    <span id="print-graphic-text" class="text-[10px] font-bold uppercase tracking-wider block mt-1 text-navy">Botanica</span>
                   </div>
                 </div>
               </div>
 
               <!-- Pill details on the mockup -->
-              <div class="badge-blur absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/90 py-2 px-3 rounded-xl border border-earth/10 flex items-center justify-between text-xs">
-                <span class="font-semibold text-earth truncate max-w-[65%]" id="mockup-label">Canvas Tote &bull; Raw Canvas</span>
-                <span class="font-mono text-emerald-800 font-bold" id="mockup-unit-tag">~£6.80 / ea</span>
+              <div class="badge-blur absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-white/90 py-2 px-3 rounded-xl border border-navy/10 flex items-center justify-between text-xs">
+                <span class="font-semibold text-navy truncate max-w-[65%]" id="mockup-label">Canvas Tote &bull; Raw Canvas</span>
+                <span class="font-mono text-crimson font-bold" id="mockup-unit-tag">~£6.80 / ea</span>
               </div>
             </div>
 
-            <p class="text-[11px] text-warmgray text-center mt-3">
+            <p class="text-[11px] text-slate text-center mt-3">
               Preview shown is for visual reference. Screen setups are sized to order.
             </p>
           </div>
@@ -264,23 +269,23 @@
             <!-- Step 1: Select Garment -->
             <div>
               <div class="flex justify-between items-center mb-1.5">
-                <label class="text-xs font-bold uppercase tracking-wider text-earth">1. Choose Base Product</label>
-                <span class="text-[11px] text-warmgray" id="garment-spec-desc">340 GSM Heavy Cotton Canvas</span>
+                <label class="text-xs font-bold uppercase tracking-wider text-navy">1. Choose Base Product</label>
+                <span class="text-[11px] text-slate" id="garment-spec-desc">340 GSM Heavy Cotton Canvas</span>
               </div>
               <div class="grid grid-cols-2 gap-2.5">
-                <button type="button" class="garment-toggle active p-3 rounded-xl border-2 border-earth bg-canvas flex items-center gap-3 transition-all text-left shadow-sm active:scale-95" data-type="tote">
+                <button type="button" class="garment-toggle active p-3 rounded-xl border-2 border-navy bg-canvas flex items-center gap-3 transition-all text-left shadow-sm active:scale-95" data-type="tote">
                   <div class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-lg shrink-0">👜</div>
                   <div>
-                    <p class="text-xs font-bold text-earth">Heavy Tote</p>
-                    <p class="text-[10px] text-emerald-700 font-semibold">From £4.80 ea</p>
+                    <p class="text-xs font-bold text-navy">Heavy Tote</p>
+                    <p class="text-[10px] text-crimson font-semibold">From £4.80 ea</p>
                   </div>
                 </button>
 
                 <button type="button" class="garment-toggle p-3 rounded-xl border-2 border-transparent bg-canvas/80 hover:bg-canvas flex items-center gap-3 transition-all text-left active:scale-95" data-type="tshirt">
                   <div class="w-9 h-9 rounded-lg bg-sand flex items-center justify-center text-lg shrink-0">👕</div>
                   <div>
-                    <p class="text-xs font-bold text-earth">Heavy Tee</p>
-                    <p class="text-[10px] text-emerald-700 font-semibold">From £8.50 ea</p>
+                    <p class="text-xs font-bold text-navy">Heavy Tee</p>
+                    <p class="text-[10px] text-crimson font-semibold">From £8.50 ea</p>
                   </div>
                 </button>
               </div>
@@ -289,58 +294,58 @@
             <!-- Step 2: Fabric Color Swatches -->
             <div>
               <div class="flex items-center justify-between mb-1.5">
-                <label class="text-xs font-bold uppercase tracking-wider text-earth">2. Fabric Dye</label>
-                <span id="color-name-display" class="text-[11px] font-semibold text-warmgray">Raw Canvas</span>
+                <label class="text-xs font-bold uppercase tracking-wider text-navy">2. Fabric Dye</label>
+                <span id="color-name-display" class="text-[11px] font-semibold text-slate">Raw Canvas</span>
               </div>
               <div class="flex items-center gap-2.5 sm:gap-3" id="color-options">
-                <button type="button" data-color="#EAE3D2" data-name="Raw Canvas" class="color-swatch ring-2 ring-earth ring-offset-2 w-9 h-9 rounded-full border border-earth/20 bg-[#EAE3D2] transition-transform hover:scale-105 active:scale-95" aria-label="Raw Canvas"></button>
-                <button type="button" data-color="#ECA82B" data-name="Warm Gold" class="color-swatch w-9 h-9 rounded-full border border-earth/20 bg-[#ECA82B] transition-transform hover:scale-105 active:scale-95" aria-label="Warm Gold"></button>
-                <button type="button" data-color="#E06D3B" data-name="Sunset Amber" class="color-swatch w-9 h-9 rounded-full border border-earth/20 bg-[#E06D3B] transition-transform hover:scale-105 active:scale-95" aria-label="Sunset Amber"></button>
-                <button type="button" data-color="#C85236" data-name="Terracotta Clay" class="color-swatch w-9 h-9 rounded-full border border-earth/20 bg-[#C85236] transition-transform hover:scale-105 active:scale-95" aria-label="Terracotta Clay"></button>
-                <button type="button" data-color="#281B15" data-name="Washed Charcoal" class="color-swatch w-9 h-9 rounded-full border border-earth/20 bg-[#281B15] transition-transform hover:scale-105 active:scale-95" aria-label="Washed Charcoal"></button>
+                <button type="button" data-color="#EAE3D2" data-name="Raw Canvas" class="color-swatch ring-2 ring-navy ring-offset-2 w-9 h-9 rounded-full border border-navy/20 bg-[#EAE3D2] transition-transform hover:scale-105 active:scale-95" aria-label="Raw Canvas"></button>
+                <button type="button" data-color="#0C233F" data-name="Deep Navy" class="color-swatch w-9 h-9 rounded-full border border-navy/20 bg-[#0C233F] transition-transform hover:scale-105 active:scale-95" aria-label="Deep Navy"></button>
+                <button type="button" data-color="#D0232B" data-name="Crimson Red" class="color-swatch w-9 h-9 rounded-full border border-navy/20 bg-[#D0232B] transition-transform hover:scale-105 active:scale-95" aria-label="Crimson Red"></button>
+                <button type="button" data-color="#FFFFFF" data-name="Crisp White" class="color-swatch w-9 h-9 rounded-full border border-navy/20 bg-[#FFFFFF] transition-transform hover:scale-105 active:scale-95" aria-label="Crisp White"></button>
+                <button type="button" data-color="#3A4F66" data-name="Slate Blue" class="color-swatch w-9 h-9 rounded-full border border-navy/20 bg-[#3A4F66] transition-transform hover:scale-105 active:scale-95" aria-label="Slate Blue"></button>
               </div>
             </div>
 
             <!-- Step 3: Screen Print Artwork Design Motif -->
             <div>
-              <label class="text-xs font-bold uppercase tracking-wider text-earth block mb-1.5">3. Sample Artwork Motif</label>
+              <label class="text-xs font-bold uppercase tracking-wider text-navy block mb-1.5">3. Sample Artwork Motif</label>
               <div class="grid grid-cols-3 gap-2">
-                <button type="button" class="design-btn active p-2.5 rounded-xl border-2 border-earth bg-canvas text-center text-xs font-semibold text-earth transition-all shadow-sm active:scale-95" data-design="botanical">
+                <button type="button" class="design-btn active p-2.5 rounded-xl border-2 border-navy bg-canvas text-center text-xs font-semibold text-navy transition-all shadow-sm active:scale-95" data-design="botanical">
                   🌿 Botanica
                 </button>
-                <button type="button" class="design-btn p-2.5 rounded-xl border-2 border-transparent bg-canvas/70 text-center text-xs font-semibold text-earth hover:bg-canvas transition-all active:scale-95" data-design="sun">
+                <button type="button" class="design-btn p-2.5 rounded-xl border-2 border-transparent bg-canvas/70 text-center text-xs font-semibold text-navy hover:bg-canvas transition-all active:scale-95" data-design="sun">
                   ☀️ Solstice
                 </button>
-                <button type="button" class="design-btn p-2.5 rounded-xl border-2 border-transparent bg-canvas/70 text-center text-xs font-semibold text-earth hover:bg-canvas transition-all active:scale-95" data-design="abstract">
+                <button type="button" class="design-btn p-2.5 rounded-xl border-2 border-transparent bg-canvas/70 text-center text-xs font-semibold text-navy hover:bg-canvas transition-all active:scale-95" data-design="abstract">
                   〰️ Abstract
                 </button>
               </div>
             </div>
 
             <!-- Step 4: Batch Size / Quantity Slider -->
-            <div class="bg-canvas p-4 rounded-2xl border border-earth/10">
+            <div class="bg-canvas p-4 rounded-2xl border border-navy/10">
               <div class="flex items-center justify-between mb-2">
-                <label for="quantity-slider" class="text-xs font-bold uppercase tracking-wider text-earth">4. Quantity Slider</label>
-                <span class="text-sm font-bold font-mono text-terracotta" id="qty-number-badge">50 units</span>
+                <label for="quantity-slider" class="text-xs font-bold uppercase tracking-wider text-navy">4. Quantity Slider</label>
+                <span class="text-sm font-bold font-mono text-crimson" id="qty-number-badge">50 units</span>
               </div>
               <input type="range" id="quantity-slider" min="1" max="250" value="50" step="1" 
-                     class="w-full accent-terracotta h-2 bg-sand rounded-lg appearance-none cursor-pointer">
+                     class="w-full accent-crimson h-2 bg-sand rounded-lg appearance-none cursor-pointer">
               
               <!-- Quick Tiers -->
-              <div class="flex justify-between text-[10px] text-warmgray mt-2 font-mono">
-                <button type="button" class="quick-qty-btn hover:text-earth underline" data-qty="1">1 (Sample)</button>
-                <button type="button" class="quick-qty-btn hover:text-earth underline" data-qty="25">25 (Starter)</button>
-                <button type="button" class="quick-qty-btn hover:text-earth underline font-bold text-terracotta" data-qty="50">50 (Popular)</button>
-                <button type="button" class="quick-qty-btn hover:text-earth underline" data-qty="100">100 (Bulk)</button>
-                <button type="button" class="quick-qty-btn hover:text-earth underline" data-qty="200">200+</button>
+              <div class="flex justify-between text-[10px] text-slate mt-2 font-mono">
+                <button type="button" class="quick-qty-btn hover:text-navy underline" data-qty="1">1 (Sample)</button>
+                <button type="button" class="quick-qty-btn hover:text-navy underline" data-qty="25">25 (Starter)</button>
+                <button type="button" class="quick-qty-btn hover:text-navy underline font-bold text-crimson" data-qty="50">50 (Popular)</button>
+                <button type="button" class="quick-qty-btn hover:text-navy underline" data-qty="100">100 (Bulk)</button>
+                <button type="button" class="quick-qty-btn hover:text-navy underline" data-qty="200">200+</button>
               </div>
             </div>
 
             <!-- Live Cost Breakdown Box -->
-            <div class="p-4 rounded-2xl bg-earth text-sand space-y-2.5 shadow-md">
+            <div class="p-4 rounded-2xl bg-navy text-sand space-y-2.5 shadow-md">
               <div class="flex items-center justify-between border-b border-sand/15 pb-2 text-xs">
                 <span class="text-sand/80">Estimated Price Per Unit:</span>
-                <span class="font-mono text-emerald-400 font-bold text-base" id="calc-unit-price">£6.80 / unit</span>
+                <span class="font-mono text-white font-bold text-base" id="calc-unit-price">£6.80 / unit</span>
               </div>
               <div class="flex items-center justify-between text-xs">
                 <span class="text-sand/80">Estimated Batch Total:</span>
@@ -357,7 +362,7 @@
             </div>
 
             <!-- Action: Request Official Quote with this spec -->
-            <button id="use-custom-spec-btn" class="w-full py-3.5 rounded-xl bg-terracotta text-white hover:bg-earth font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 active:scale-95">
+            <button id="use-custom-spec-btn" class="w-full py-3.5 rounded-xl bg-crimson text-white hover:bg-navy font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 active:scale-95">
               <span>Send This Specification for Quote</span>
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
             </button>
@@ -367,79 +372,79 @@
     </div>
   </section>
 
-  <section id="pricing-guide" class="py-16 sm:py-20 bg-sand/30 border-y border-earth/10">
+  <section id="pricing-guide" class="py-16 sm:py-20 bg-sand/40 border-y border-navy/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12">
-        <span class="text-xs font-bold uppercase tracking-widest text-forest">Transparent Pricing Tiers</span>
-        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-earth mt-1">Cost Per Unit Breakdown</h2>
-        <p class="text-xs sm:text-sm text-warmgray mt-2">All prices include screen creation, 1-color hand-pulled screen print, garment supply, and standard packing.</p>
+        <span class="text-xs font-bold uppercase tracking-widest text-navy">Transparent Pricing Tiers</span>
+        <h2 class="text-2xl sm:text-3xl font-display text-navy mt-1">Cost Per Unit Breakdown</h2>
+        <p class="text-xs sm:text-sm text-slate mt-2">All prices include screen creation, 1-color hand-pulled screen print, garment supply, and standard packing.</p>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
         <!-- Tote Table -->
-        <div class="bg-canvas rounded-2xl p-5 sm:p-6 border border-earth/10 shadow-sm">
+        <div class="bg-canvas rounded-2xl p-5 sm:p-6 border border-navy/10 shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span class="text-2xl">👜</span>
             <div>
-              <h3 class="font-serif font-bold text-base text-earth">Heavyweight Canvas Tote (340 GSM)</h3>
-              <p class="text-[11px] text-warmgray">15L volume &bull; Cross-stitched reinforced handles</p>
+              <h3 class="font-display text-base text-navy">Heavyweight Canvas Tote (340 GSM)</h3>
+              <p class="text-[11px] text-slate">15L volume &bull; Cross-stitched reinforced handles</p>
             </div>
           </div>
 
-          <div class="divide-y divide-earth/10 text-xs">
+          <div class="divide-y divide-navy/10 text-xs">
             <div class="py-2.5 flex justify-between items-center">
-              <span class="text-warmgray">1 Sample Piece (Digital Proof + Print)</span>
-              <span class="font-mono font-bold text-earth">£24.00</span>
+              <span class="text-slate">1 Sample Piece (Digital Proof + Print)</span>
+              <span class="font-mono font-bold text-navy">£24.00</span>
             </div>
             <div class="py-2.5 flex justify-between items-center">
-              <span class="text-earth font-medium">15 &ndash; 29 units</span>
-              <span class="font-mono font-bold text-earth">£8.50 / ea</span>
+              <span class="text-navy font-medium">15 &ndash; 29 units</span>
+              <span class="font-mono font-bold text-navy">£8.50 / ea</span>
             </div>
-            <div class="py-2.5 flex justify-between items-center bg-sand/50 px-2 rounded-lg">
-              <span class="text-earth font-bold">30 &ndash; 74 units (Most Popular)</span>
-              <span class="font-mono font-bold text-terracotta">£6.80 / ea</span>
-            </div>
-            <div class="py-2.5 flex justify-between items-center">
-              <span class="text-earth font-medium">75 &ndash; 149 units</span>
-              <span class="font-mono font-bold text-earth">£5.60 / ea</span>
+            <div class="py-2.5 flex justify-between items-center bg-sand/60 px-2 rounded-lg">
+              <span class="text-navy font-bold">30 &ndash; 74 units (Most Popular)</span>
+              <span class="font-mono font-bold text-crimson">£6.80 / ea</span>
             </div>
             <div class="py-2.5 flex justify-between items-center">
-              <span class="text-emerald-800 font-bold">150+ Bulk Wholesale</span>
-              <span class="font-mono font-bold text-emerald-800">£4.80 / ea</span>
+              <span class="text-navy font-medium">75 &ndash; 149 units</span>
+              <span class="font-mono font-bold text-navy">£5.60 / ea</span>
+            </div>
+            <div class="py-2.5 flex justify-between items-center">
+              <span class="text-crimson font-bold">150+ Bulk Wholesale</span>
+              <span class="font-mono font-bold text-crimson">£4.80 / ea</span>
             </div>
           </div>
         </div>
 
         <!-- T-Shirt Table -->
-        <div class="bg-canvas rounded-2xl p-5 sm:p-6 border border-earth/10 shadow-sm">
+        <div class="bg-canvas rounded-2xl p-5 sm:p-6 border border-navy/10 shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <span class="text-2xl">👕</span>
             <div>
-              <h3 class="font-serif font-bold text-base text-earth">Boxy Jersey Tee (220 GSM)</h3>
-              <p class="text-[11px] text-warmgray">100% combed jersey cotton &bull; Water-based soft discharge ink</p>
+              <h3 class="font-display text-base text-navy">Boxy Jersey Tee (220 GSM)</h3>
+              <p class="text-[11px] text-slate">100% combed jersey cotton &bull; Water-based soft discharge ink</p>
             </div>
           </div>
 
-          <div class="divide-y divide-earth/10 text-xs">
+          <div class="divide-y divide-navy/10 text-xs">
             <div class="py-2.5 flex justify-between items-center">
-              <span class="text-warmgray">1 Sample Piece (Custom Sized)</span>
-              <span class="font-mono font-bold text-earth">£32.00</span>
+              <span class="text-slate">1 Sample Piece (Custom Sized)</span>
+              <span class="font-mono font-bold text-navy">£32.00</span>
             </div>
             <div class="py-2.5 flex justify-between items-center">
-              <span class="text-earth font-medium">15 &ndash; 29 units</span>
-              <span class="font-mono font-bold text-earth">£14.50 / ea</span>
+              <span class="text-navy font-medium">15 &ndash; 29 units</span>
+              <span class="font-mono font-bold text-navy">£14.50 / ea</span>
             </div>
-            <div class="py-2.5 flex justify-between items-center bg-sand/50 px-2 rounded-lg">
-              <span class="text-earth font-bold">30 &ndash; 74 units (Most Popular)</span>
-              <span class="font-mono font-bold text-terracotta">£11.20 / ea</span>
-            </div>
-            <div class="py-2.5 flex justify-between items-center">
-              <span class="text-earth font-medium">75 &ndash; 149 units</span>
-              <span class="font-mono font-bold text-earth">£9.80 / ea</span>
+            <div class="py-2.5 flex justify-between items-center bg-sand/60 px-2 rounded-lg">
+              <span class="text-navy font-bold">30 &ndash; 74 units (Most Popular)</span>
+              <span class="font-mono font-bold text-crimson">£11.20 / ea</span>
             </div>
             <div class="py-2.5 flex justify-between items-center">
-              <span class="text-emerald-800 font-bold">150+ Bulk Wholesale</span>
-              <span class="font-mono font-bold text-emerald-800">£8.50 / ea</span>
+              <span class="text-navy font-medium">75 &ndash; 149 units</span>
+              <span class="font-mono font-bold text-navy">£9.80 / ea</span>
+            </div>
+            <div class="py-2.5 flex justify-between items-center">
+              <span class="text-crimson font-bold">150+ Bulk Wholesale</span>
+              <span class="font-mono font-bold text-crimson">£8.50 / ea</span>
             </div>
           </div>
         </div>
@@ -453,23 +458,23 @@
       <!-- Section Title & Filters -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Garment Models</span>
-          <h2 class="text-2xl sm:text-4xl font-serif font-bold text-earth mt-1">Our Base Garments &amp; Print Samples</h2>
-          <p class="text-xs sm:text-sm text-warmgray mt-1.5">Tap any piece to review fabric specifications, wash durability, and exact volume cost tiers.</p>
+          <span class="text-xs font-bold uppercase tracking-widest text-crimson">Garment Models</span>
+          <h2 class="text-2xl sm:text-4xl font-display text-navy mt-1">Our Base Garments &amp; Print Samples</h2>
+          <p class="text-xs sm:text-sm text-slate mt-1.5">Tap any piece to review fabric specifications, wash durability, and exact volume cost tiers.</p>
         </div>
 
         <!-- Filter Buttons (touch friendly scroll on mobile) -->
         <div class="flex overflow-x-auto pb-2 md:pb-0 gap-2 no-scrollbar" id="filter-container">
-          <button data-filter="all" class="filter-btn active whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-earth text-sand">
+          <button data-filter="all" class="filter-btn active whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-navy text-sand">
             All Bases
           </button>
-          <button data-filter="tote" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-sand text-earth hover:bg-earth/10">
+          <button data-filter="tote" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-sand text-navy hover:bg-navy/10">
             Totes (340 GSM)
           </button>
-          <button data-filter="tshirt" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-sand text-earth hover:bg-earth/10">
+          <button data-filter="tshirt" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-sand text-navy hover:bg-navy/10">
             T-Shirts (220 GSM)
           </button>
-          <button data-filter="bestseller" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-sand text-earth hover:bg-earth/10">
+          <button data-filter="bestseller" class="filter-btn whitespace-nowrap px-4 py-2 rounded-full text-xs font-bold transition-all bg-sand text-navy hover:bg-navy/10">
             Top Picks
           </button>
         </div>
@@ -482,40 +487,40 @@
     </div>
   </section>
 
-  <section id="quality" class="py-16 sm:py-20 bg-forest text-sand">
+  <section id="quality" class="py-16 sm:py-20 bg-navy text-sand">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
-        <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Craftsmanship &amp; Materials</span>
-        <h2 class="text-2xl sm:text-4xl font-serif font-bold mt-2">Why Our Prints Outlast the Rest</h2>
+        <span class="text-xs font-bold uppercase tracking-widest text-crimson">Craftsmanship &amp; Materials</span>
+        <h2 class="text-2xl sm:text-4xl font-display mt-2">Why Our Prints Outlast the Rest</h2>
         <p class="text-xs sm:text-sm text-sand/80 mt-2">We never print on flimsy throwaway promotional blanks. Everything is built to endure everyday utility.</p>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
         <div class="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-          <div class="w-12 h-12 rounded-2xl bg-terracotta text-white flex items-center justify-center mb-5 text-xl">
+          <div class="w-12 h-12 rounded-2xl bg-crimson text-white flex items-center justify-center mb-5 text-xl">
             🧵
           </div>
-          <h3 class="font-serif text-lg sm:text-xl font-bold mb-2">Reinforced Cross-Stitch Handles</h3>
+          <h3 class="font-display text-lg sm:text-xl mb-2">Reinforced Cross-Stitch Handles</h3>
           <p class="text-xs leading-relaxed text-sand/75">
             Tote bag handles feature reinforced 'X-box' stitched webbing rated for 18kg+ loads, so heavy laptops and produce won't pull the seams apart.
           </p>
         </div>
 
         <div class="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-700 text-white flex items-center justify-center mb-5 text-xl">
+          <div class="w-12 h-12 rounded-2xl bg-navy-light text-white flex items-center justify-center mb-5 text-xl">
             💧
           </div>
-          <h3 class="font-serif text-lg sm:text-xl font-bold mb-2">Zero-Plastic Water Inks</h3>
+          <h3 class="font-display text-lg sm:text-xl mb-2">Zero-Plastic Water Inks</h3>
           <p class="text-xs leading-relaxed text-sand/75">
             Unlike cheap plastisol transfers that crack after 2 washes, we screen print with water-based discharge inks that dye into cotton fibers for a silky, uncrackable feel.
           </p>
         </div>
 
         <div class="p-6 sm:p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-          <div class="w-12 h-12 rounded-2xl bg-amber-600 text-white flex items-center justify-center mb-5 text-xl">
+          <div class="w-12 h-12 rounded-2xl bg-crimson text-white flex items-center justify-center mb-5 text-xl">
             👕
           </div>
-          <h3 class="font-serif text-lg sm:text-xl font-bold mb-2">Premium Heavyweight Cotton</h3>
+          <h3 class="font-display text-lg sm:text-xl mb-2">Premium Heavyweight Cotton</h3>
           <p class="text-xs leading-relaxed text-sand/75">
             Heavyweight 100% fair-wage combed cotton built for durability and long-lasting wear. Pre-shrunk to retain shape wash after wash.
           </p>
@@ -524,13 +529,13 @@
     </div>
   </section>
 
-  <section id="quote-form" class="py-16 sm:py-20 bg-canvas border-t border-earth/10">
+  <section id="quote-form" class="py-16 sm:py-20 bg-canvas border-t border-navy/10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-sand rounded-3xl p-6 sm:p-10 lg:p-12 border border-earth/10 shadow-sm">
+      <div class="bg-sand rounded-3xl p-6 sm:p-10 lg:p-12 border border-navy/10 shadow-sm">
         <div class="text-center max-w-xl mx-auto mb-8">
-          <span class="text-xs font-bold uppercase tracking-wider text-forest">No-Obligation Estimate</span>
-          <h2 class="text-2xl sm:text-3xl font-serif font-bold text-earth mt-1">Request an Official Free Quote</h2>
-          <p class="text-xs sm:text-sm text-warmgray mt-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-crimson">No-Obligation Estimate</span>
+          <h2 class="text-2xl sm:text-3xl font-display text-navy mt-1">Request an Official Free Quote</h2>
+          <p class="text-xs sm:text-sm text-slate mt-2">
             Tell us about your project or use the calculator above. We’ll reply within 24 hours with exact itemized costs, digital proof instructions, and delivery estimates.
           </p>
         </div>
@@ -538,19 +543,19 @@
         <form id="bulk-inquiry-form" class="space-y-4">
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-bold text-earth uppercase mb-1">Your Name *</label>
-              <input type="text" id="quote-name" required placeholder="Alex Turner" class="w-full px-4 py-3 rounded-xl bg-canvas border border-earth/20 focus:outline-none focus:ring-2 focus:ring-terracotta text-sm">
+              <label class="block text-xs font-bold text-navy uppercase mb-1">Your Name *</label>
+              <input type="text" id="quote-name" required placeholder="Alex Turner" class="w-full px-4 py-3 rounded-xl bg-canvas border border-navy/20 focus:outline-none focus:ring-2 focus:ring-crimson text-sm">
             </div>
             <div>
-              <label class="block text-xs font-bold text-earth uppercase mb-1">Email Address *</label>
-              <input type="email" id="quote-email" required placeholder="alex@studio.com" class="w-full px-4 py-3 rounded-xl bg-canvas border border-earth/20 focus:outline-none focus:ring-2 focus:ring-terracotta text-sm">
+              <label class="block text-xs font-bold text-navy uppercase mb-1">Email Address *</label>
+              <input type="email" id="quote-email" required placeholder="alex@studio.com" class="w-full px-4 py-3 rounded-xl bg-canvas border border-navy/20 focus:outline-none focus:ring-2 focus:ring-crimson text-sm">
             </div>
           </div>
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
-              <label class="block text-xs font-bold text-earth uppercase mb-1">Product Interested In</label>
-              <select id="quote-product-select" class="w-full px-4 py-3 rounded-xl bg-canvas border border-earth/20 focus:outline-none focus:ring-2 focus:ring-terracotta text-sm text-earth">
+              <label class="block text-xs font-bold text-navy uppercase mb-1">Product Interested In</label>
+              <select id="quote-product-select" class="w-full px-4 py-3 rounded-xl bg-canvas border border-navy/20 focus:outline-none focus:ring-2 focus:ring-crimson text-sm text-navy">
                 <option value="tote">Heavyweight Tote Bags (340 GSM)</option>
                 <option value="tshirt">Boxy T-Shirts (220 GSM)</option>
                 <option value="bundle">Both (Totes &amp; T-Shirts Combo)</option>
@@ -558,8 +563,8 @@
               </select>
             </div>
             <div>
-              <label class="block text-xs font-bold text-earth uppercase mb-1">Estimated Quantity</label>
-              <select id="quote-qty-select" class="w-full px-4 py-3 rounded-xl bg-canvas border border-earth/20 focus:outline-none focus:ring-2 focus:ring-terracotta text-sm text-earth">
+              <label class="block text-xs font-bold text-navy uppercase mb-1">Estimated Quantity</label>
+              <select id="quote-qty-select" class="w-full px-4 py-3 rounded-xl bg-canvas border border-navy/20 focus:outline-none focus:ring-2 focus:ring-crimson text-sm text-navy">
                 <option value="1">1 Sample (£24 &ndash; £32)</option>
                 <option value="25">15 &ndash; 30 pieces (Starter)</option>
                 <option value="50" selected>31 &ndash; 75 pieces (Most Popular)</option>
@@ -570,21 +575,21 @@
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-earth uppercase mb-1">Project Details / Estimated Specs</label>
-            <textarea id="quote-notes" rows="4" placeholder="Mention ink colors (e.g. 1 color white print on dark bag), target delivery date, or artwork link..." class="w-full px-4 py-3 rounded-xl bg-canvas border border-earth/20 focus:outline-none focus:ring-2 focus:ring-terracotta text-sm"></textarea>
+            <label class="block text-xs font-bold text-navy uppercase mb-1">Project Details / Estimated Specs</label>
+            <textarea id="quote-notes" rows="4" placeholder="Mention ink colors (e.g. 1 color white print on dark bag), target delivery date, or artwork link..." class="w-full px-4 py-3 rounded-xl bg-canvas border border-navy/20 focus:outline-none focus:ring-2 focus:ring-crimson text-sm"></textarea>
           </div>
 
-          <button type="submit" class="w-full py-4 rounded-xl bg-terracotta text-white font-bold text-xs uppercase tracking-wider hover:bg-earth transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
+          <button type="submit" class="w-full py-4 rounded-xl bg-crimson text-white font-bold text-xs uppercase tracking-wider hover:bg-navy transition-all shadow-md active:scale-95 flex items-center justify-center gap-2">
             <span>Send Quote Request</span>
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
           </button>
-          <p class="text-[11px] text-center text-warmgray">Zero payment required &bull; No spam guaranteed &bull; 24-hr turnaround</p>
+          <p class="text-[11px] text-center text-slate">Zero payment required &bull; No spam guaranteed &bull; 24-hr turnaround</p>
         </form>
       </div>
     </div>
   </section>
 
-  <footer class="bg-earth text-sand py-12 sm:py-16 border-t border-sand/10">
+  <footer class="bg-navy text-sand py-12 sm:py-16 border-t border-sand/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         
@@ -603,10 +608,10 @@
         <div>
           <h4 class="text-xs font-bold uppercase tracking-wider text-sand mb-3">Quick Navigation</h4>
           <ul class="space-y-2 text-xs text-sand/70">
-            <li><a href="#customizer" class="hover:text-terracotta">Cost Estimator</a></li>
-            <li><a href="#pricing-guide" class="hover:text-terracotta">Volume Rate Card</a></li>
-            <li><a href="#shop" class="hover:text-terracotta">Garment Models</a></li>
-            <li><a href="#quote-form" class="hover:text-terracotta">Free Proof &amp; Quote</a></li>
+            <li><a href="#customizer" class="hover:text-crimson">Cost Estimator</a></li>
+            <li><a href="#pricing-guide" class="hover:text-crimson">Volume Rate Card</a></li>
+            <li><a href="#shop" class="hover:text-crimson">Garment Models</a></li>
+            <li><a href="#quote-form" class="hover:text-crimson">Free Proof &amp; Quote</a></li>
           </ul>
         </div>
 
@@ -631,24 +636,24 @@
     </div>
   </footer>
 
-  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-canvas/95 backdrop-blur-md border-t border-earth/10 p-3 flex items-center justify-between gap-3 shadow-lg">
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-canvas/95 backdrop-blur-md border-t border-navy/10 p-3 flex items-center justify-between gap-3 shadow-lg">
     <div class="text-left leading-tight">
-      <span class="text-[10px] text-warmgray block uppercase font-bold">Estimated Base</span>
-      <span class="text-xs font-bold text-emerald-800" id="mobile-bar-price">Totes from £4.80</span>
+      <span class="text-[10px] text-slate block uppercase font-bold">Estimated Base</span>
+      <span class="text-xs font-bold text-crimson" id="mobile-bar-price">Totes from £4.80</span>
     </div>
     <div class="flex gap-2">
-      <a href="#customizer" class="px-3.5 py-2 rounded-xl bg-sand border border-earth/10 text-earth text-xs font-bold active:scale-95">
+      <a href="#customizer" class="px-3.5 py-2 rounded-xl bg-sand border border-navy/10 text-navy text-xs font-bold active:scale-95">
         Calculator
       </a>
-      <a href="#quote-form" class="px-4 py-2 rounded-xl bg-terracotta text-white text-xs font-bold shadow active:scale-95">
+      <a href="#quote-form" class="px-4 py-2 rounded-xl bg-crimson text-white text-xs font-bold shadow active:scale-95">
         Get Quote
       </a>
     </div>
   </div>
 
-  <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-earth/70 backdrop-blur-sm">
-    <div class="bg-canvas w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-earth/10 relative max-h-[90vh] flex flex-col sm:flex-row">
-      <button id="close-modal-btn" class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-earth flex items-center justify-center shadow">
+  <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy/80 backdrop-blur-sm">
+    <div class="bg-canvas w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-navy/10 relative max-h-[90vh] flex flex-col sm:flex-row">
+      <button id="close-modal-btn" class="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-navy flex items-center justify-center shadow">
         &times;
       </button>
 
@@ -658,23 +663,23 @@
       
       <div class="p-6 sm:w-1/2 flex flex-col justify-between overflow-y-auto">
         <div>
-          <span id="modal-tag" class="text-[10px] uppercase font-bold tracking-wider text-terracotta">Garment Spec</span>
-          <h3 id="modal-title" class="font-serif text-xl sm:text-2xl font-bold text-earth mt-1">Product Title</h3>
-          <p id="modal-price" class="text-sm font-bold text-emerald-800 mt-1 font-mono">From £4.80 &ndash; £8.50 / unit</p>
-          <p id="modal-desc" class="text-xs text-warmgray mt-3 leading-relaxed">Detailed specs and fabric blend info.</p>
+          <span id="modal-tag" class="text-[10px] uppercase font-bold tracking-wider text-crimson">Garment Spec</span>
+          <h3 id="modal-title" class="font-display text-xl sm:text-2xl text-navy mt-1">Product Title</h3>
+          <p id="modal-price" class="text-sm font-bold text-crimson mt-1 font-mono">From £4.80 &ndash; £8.50 / unit</p>
+          <p id="modal-desc" class="text-xs text-slate mt-3 leading-relaxed">Detailed specs and fabric blend info.</p>
           
           <!-- Pricing Breakdown in Modal -->
-          <div class="mt-4 p-3 rounded-xl bg-sand/60 border border-earth/10 text-[11px] space-y-1">
-            <p class="font-bold text-earth uppercase text-[10px]">Volume Rate Guide</p>
-            <div class="flex justify-between text-warmgray"><span>1 Sample Piece:</span> <span class="font-mono text-earth font-bold" id="modal-sample-price">£24.00</span></div>
-            <div class="flex justify-between text-warmgray"><span>25 &ndash; 49 units:</span> <span class="font-mono text-earth font-bold" id="modal-tier-1">£8.50 / ea</span></div>
-            <div class="flex justify-between text-warmgray"><span>50 &ndash; 99 units:</span> <span class="font-mono text-terracotta font-bold" id="modal-tier-2">£6.80 / ea</span></div>
-            <div class="flex justify-between text-warmgray"><span>100+ units:</span> <span class="font-mono text-emerald-800 font-bold" id="modal-tier-3">£4.80 / ea</span></div>
+          <div class="mt-4 p-3 rounded-xl bg-sand/60 border border-navy/10 text-[11px] space-y-1">
+            <p class="font-bold text-navy uppercase text-[10px]">Volume Rate Guide</p>
+            <div class="flex justify-between text-slate"><span>1 Sample Piece:</span> <span class="font-mono text-navy font-bold" id="modal-sample-price">£24.00</span></div>
+            <div class="flex justify-between text-slate"><span>25 &ndash; 49 units:</span> <span class="font-mono text-navy font-bold" id="modal-tier-1">£8.50 / ea</span></div>
+            <div class="flex justify-between text-slate"><span>50 &ndash; 99 units:</span> <span class="font-mono text-crimson font-bold" id="modal-tier-2">£6.80 / ea</span></div>
+            <div class="flex justify-between text-slate"><span>100+ units:</span> <span class="font-mono text-crimson font-bold" id="modal-tier-3">£4.80 / ea</span></div>
           </div>
         </div>
 
         <div class="pt-5">
-          <button id="modal-select-quote-btn" class="w-full py-3.5 rounded-xl bg-earth text-sand font-bold text-xs uppercase tracking-wider hover:bg-terracotta transition-colors shadow active:scale-95">
+          <button id="modal-select-quote-btn" class="w-full py-3.5 rounded-xl bg-navy text-sand font-bold text-xs uppercase tracking-wider hover:bg-crimson transition-colors shadow active:scale-95">
             Quote for This Garment
           </button>
         </div>
@@ -683,8 +688,8 @@
   </div>
 
   <div id="toast" class="fixed bottom-16 sm:bottom-6 right-4 sm:right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
-    <div class="bg-earth text-sand px-5 py-3.5 rounded-2xl shadow-xl border border-sand/10 flex items-center gap-3">
-      <span class="w-2 h-2 rounded-full bg-emerald-400 shrink-0"></span>
+    <div class="bg-navy text-sand px-5 py-3.5 rounded-2xl shadow-xl border border-sand/10 flex items-center gap-3">
+      <span class="w-2 h-2 rounded-full bg-crimson shrink-0"></span>
       <span id="toast-message" class="text-xs font-semibold">Estimates updated!</span>
     </div>
   </div>
@@ -735,7 +740,7 @@
         isBestseller: false,
         desc: "Deep 12cm base gusset built for bookstore hauls, farmer markets, or gym carry. X-box stitched heavy duty handles.",
         image: "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80",
-        color: "Terracotta"
+        color: "Crimson"
       },
       {
         id: 4,
@@ -780,7 +785,7 @@
         isBestseller: false,
         desc: "Thick 240 GSM ring-spun cotton. Ribbed collar with twin-needle hem. Holds shape through commercial laundry.",
         image: "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=700&q=80",
-        color: "Terracotta"
+        color: "Crimson"
       },
       {
         id: 7,
@@ -795,7 +800,7 @@
         isBestseller: false,
         desc: "Dual handles (short hand grab & long shoulder strap). 380 GSM duck canvas for maximum structural sturdiness.",
         image: "https://images.unsplash.com/photo-1574634534894-89d7576c8259?auto=format&fit=crop&w=700&q=80",
-        color: "Forest Green"
+        color: "Deep Navy"
       },
       {
         id: 8,
@@ -917,7 +922,7 @@
       if (customizerState.quantity === 1) {
         calcSetupTag.textContent = "Single piece custom sample";
       } else if (setupWaived) {
-        calcSetupTag.innerHTML = "<span class='text-emerald-400 font-bold'>Free Screen Setup (30+ units)</span>";
+        calcSetupTag.innerHTML = "<span class='text-crimson font-bold'>Free Screen Setup (30+ units)</span>";
       } else {
         calcSetupTag.textContent = "+£15.00 screen setup fee apply";
       }
@@ -936,7 +941,7 @@
 
       filtered.forEach(p => {
         const card = document.createElement('div');
-        card.className = "group bg-canvas rounded-2xl border border-earth/10 overflow-hidden flex flex-col justify-between hover:shadow-lg hover:border-earth/30 transition-all duration-300";
+        card.className = "group bg-canvas rounded-2xl border border-navy/10 overflow-hidden flex flex-col justify-between hover:shadow-lg hover:border-navy/30 transition-all duration-300";
         
         card.innerHTML = `
           <div class="relative overflow-hidden aspect-[4/5] bg-sand cursor-pointer product-click-target" data-id="${p.id}">
@@ -944,28 +949,28 @@
                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                  onerror="this.src='https://placehold.co/400x500/F3EFE6/1E1B18?text=${encodeURIComponent(p.title)}'">
             
-            <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-white/90 text-earth backdrop-blur-sm shadow-sm">
+            <span class="absolute top-3 left-3 text-[10px] uppercase font-bold tracking-wider px-2.5 py-1 rounded-full bg-white/90 text-navy backdrop-blur-sm shadow-sm">
               ${p.tag}
             </span>
 
-            <div class="absolute bottom-3 right-3 px-2 py-1 rounded-lg bg-earth/90 text-sand text-[10px] font-mono font-bold tracking-tight shadow">
+            <div class="absolute bottom-3 right-3 px-2 py-1 rounded-lg bg-navy/90 text-sand text-[10px] font-mono font-bold tracking-tight shadow">
               From ${p.fromPrice}
             </div>
           </div>
 
           <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between">
             <div>
-              <div class="flex items-center justify-between text-xs text-warmgray mb-1">
+              <div class="flex items-center justify-between text-xs text-slate mb-1">
                 <span>${p.type === 'tote' ? 'Heavy Canvas' : 'Combed Cotton'}</span>
                 <span>${p.color}</span>
               </div>
-              <h3 class="font-serif font-bold text-sm sm:text-base text-earth line-clamp-1 group-hover:text-terracotta transition-colors">${p.title}</h3>
-              <p class="text-xs text-warmgray mt-1 line-clamp-2">${p.desc}</p>
+              <h3 class="font-display text-sm sm:text-base text-navy line-clamp-1 group-hover:text-crimson transition-colors">${p.title}</h3>
+              <p class="text-xs text-slate mt-1 line-clamp-2">${p.desc}</p>
             </div>
 
-            <div class="mt-4 pt-3 border-t border-earth/5 flex items-center justify-between gap-2">
-              <span class="font-bold text-emerald-800 text-xs font-mono">From ${p.fromPrice} / ea</span>
-              <button class="view-spec-btn px-3 py-1.5 rounded-full bg-sand text-earth hover:bg-earth hover:text-sand text-xs font-bold transition-all active:scale-95" data-id="${p.id}">
+            <div class="mt-4 pt-3 border-t border-navy/5 flex items-center justify-between gap-2">
+              <span class="font-bold text-crimson text-xs font-mono">From ${p.fromPrice} / ea</span>
+              <button class="view-spec-btn px-3 py-1.5 rounded-full bg-sand text-navy hover:bg-navy hover:text-sand text-xs font-bold transition-all active:scale-95" data-id="${p.id}">
                 Price Tiers
               </button>
             </div>
@@ -1063,13 +1068,13 @@
       }
 
       // Check for dark contrast
-      const isDark = customizerState.color === '#242826' || customizerState.color === '#405144' || customizerState.color === '#281B15';
+      const isDark = customizerState.color === '#0C233F' || customizerState.color === '#D0232B' || customizerState.color === '#3A4F66';
       if (isDark) {
         printGraphicIcon.className = 'text-sand';
         printGraphicText.className = 'text-[10px] font-bold uppercase tracking-wider block mt-1 text-sand';
       } else {
-        printGraphicIcon.className = 'text-earth';
-        printGraphicText.className = 'text-[10px] font-bold uppercase tracking-wider block mt-1 text-earth';
+        printGraphicIcon.className = 'text-navy';
+        printGraphicText.className = 'text-[10px] font-bold uppercase tracking-wider block mt-1 text-navy';
       }
 
       printGraphicIcon.innerHTML = designSVGs[customizerState.design];
@@ -1081,10 +1086,10 @@
     garmentToggles.forEach(toggle => {
       toggle.addEventListener('click', () => {
         garmentToggles.forEach(t => {
-          t.classList.remove('border-earth', 'bg-canvas');
+          t.classList.remove('border-navy', 'bg-canvas');
           t.classList.add('border-transparent', 'bg-canvas/80');
         });
-        toggle.classList.add('border-earth', 'bg-canvas');
+        toggle.classList.add('border-navy', 'bg-canvas');
         toggle.classList.remove('border-transparent', 'bg-canvas/80');
 
         customizerState.garment = toggle.dataset.type;
@@ -1094,8 +1099,8 @@
 
     colorSwatches.forEach(swatch => {
       swatch.addEventListener('click', () => {
-        colorSwatches.forEach(s => s.classList.remove('ring-2', 'ring-earth', 'ring-offset-2'));
-        swatch.classList.add('ring-2', 'ring-earth', 'ring-offset-2');
+        colorSwatches.forEach(s => s.classList.remove('ring-2', 'ring-navy', 'ring-offset-2'));
+        swatch.classList.add('ring-2', 'ring-navy', 'ring-offset-2');
 
         customizerState.color = swatch.dataset.color;
         customizerState.colorName = swatch.dataset.name;
@@ -1107,10 +1112,10 @@
     designBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         designBtns.forEach(b => {
-          b.classList.remove('border-earth', 'bg-canvas');
+          b.classList.remove('border-navy', 'bg-canvas');
           b.classList.add('border-transparent', 'bg-canvas/70');
         });
-        btn.classList.add('border-earth', 'bg-canvas');
+        btn.classList.add('border-navy', 'bg-canvas');
         btn.classList.remove('border-transparent', 'bg-canvas/70');
 
         customizerState.design = btn.dataset.design;
@@ -1161,11 +1166,11 @@
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         filterButtons.forEach(b => {
-          b.classList.remove('active', 'bg-earth', 'text-sand');
-          b.classList.add('bg-sand', 'text-earth');
+          b.classList.remove('active', 'bg-navy', 'text-sand');
+          b.classList.add('bg-sand', 'text-navy');
         });
-        btn.classList.add('active', 'bg-earth', 'text-sand');
-        btn.classList.remove('bg-sand', 'text-earth');
+        btn.classList.add('active', 'bg-navy', 'text-sand');
+        btn.classList.remove('bg-sand', 'text-navy');
 
         activeFilter = btn.dataset.filter;
         renderProducts();
